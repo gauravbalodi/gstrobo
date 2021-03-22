@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="9170" started-at="2021-03-21T19:52:20 IST" finished-at="2021-03-21T19:52:29 IST">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="9170" started-at="2021-03-21T19:52:20 IST" finished-at="2021-03-21T19:52:29 IST">
+      <class name="com.automation.tests.TaxInvoiceTest">
+        <test-method status="PASS" signature="before()[pri:0, instance:com.automation.tests.TaxInvoiceTest@1c3a4799]" name="before" is-config="true" duration-ms="20013" started-at="2021-03-21T19:52:00 IST" finished-at="2021-03-21T19:52:20 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- before -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.automation.tests.TaxInvoiceTest@1c3a4799]" name="setup" is-config="true" duration-ms="48" started-at="2021-03-21T19:52:20 IST" finished-at="2021-03-21T19:52:20 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="reload()[pri:0, instance:com.automation.tests.TaxInvoiceTest@1c3a4799]" name="reload" is-config="true" duration-ms="25" started-at="2021-03-21T19:52:20 IST" finished-at="2021-03-21T19:52:20 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reload -->
+        <test-method status="PASS" signature="navigateToTaxInvoicePage()[pri:0, instance:com.automation.tests.TaxInvoiceTest@1c3a4799]" name="navigateToTaxInvoicePage" duration-ms="2687" started-at="2021-03-21T19:52:20 IST" finished-at="2021-03-21T19:52:23 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- navigateToTaxInvoicePage -->
+        <test-method status="PASS" signature="reload()[pri:0, instance:com.automation.tests.TaxInvoiceTest@1c3a4799]" name="reload" is-config="true" duration-ms="25" started-at="2021-03-21T19:52:23 IST" finished-at="2021-03-21T19:52:23 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reload -->
+        <test-method status="PASS" signature="navigateToAddTaxInvoicePage()[pri:1, instance:com.automation.tests.TaxInvoiceTest@1c3a4799]" name="navigateToAddTaxInvoicePage" duration-ms="6314" started-at="2021-03-21T19:52:23 IST" finished-at="2021-03-21T19:52:29 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- navigateToAddTaxInvoicePage -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.automation.tests.TaxInvoiceTest@1c3a4799]" name="tearDown" is-config="true" duration-ms="1" started-at="2021-03-21T19:52:29 IST" finished-at="2021-03-21T19:52:29 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.automation.tests.TaxInvoiceTest@1c3a4799]" name="closeBrowser" is-config="true" duration-ms="5895" started-at="2021-03-21T19:52:29 IST" finished-at="2021-03-21T19:52:35 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- com.automation.tests.TaxInvoiceTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
