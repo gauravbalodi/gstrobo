@@ -26,7 +26,7 @@ public class BaseTest extends BasePage {
 	protected CreditDebitNote creditDebitNote;
 	protected BillOfSupply billOfSupply;
 	protected GlobalNavigation globalNavigation;
-	public WebDriver driver;
+	public static WebDriver driver;
 	
 	@BeforeSuite
 	public void before() throws Exception {
@@ -81,7 +81,7 @@ public class BaseTest extends BasePage {
 		cleanPageObjects();
 	}
 	
-	public WebDriver getDriver() {
+	public static WebDriver getDriver() {
 		return driver;
 	}
 	

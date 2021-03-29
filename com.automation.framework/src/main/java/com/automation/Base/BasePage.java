@@ -13,5 +13,6 @@ public class BasePage {
     	driver.findElement(By.xpath(locator)).click();
         
     }
+    
 
 }

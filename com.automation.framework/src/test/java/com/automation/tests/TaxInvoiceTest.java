@@ -43,7 +43,7 @@ public class TaxInvoiceTest extends BaseTest{
 	}
 	
 	// Verify that user should redirect to Tax Invoice page after clicking on Cancel Button.//
-	@Test(priority=3)
+	//@Test(priority=3)
 	public void backToTaxInvoicePage() throws InterruptedException {
 		Thread.sleep(1000);
 		taxInvoice.clickOnCancelButton();
@@ -51,5 +51,26 @@ public class TaxInvoiceTest extends BaseTest{
 	    driver.navigate().forward();
 	}
 	
-			
+	//@Test(priority=3)
+	public void ijdj() throws Exception
+	{
+		taxInvoice.clickOnRegularRadioButton();
+		taxInvoice.indianBillingAddress();
+		taxInvoice.clickOnSameAsBillingAddressCheck();
+
+	}
+		
+	//@Test(priority=3,description="An alert should show when user enters international address as billing address in case of Regular invoice type.")
+     public void verifyIndianAlertMessage() throws Exception	{
+		taxInvoice.clickOnRegularRadioButton();
+		taxInvoice.internationalBillingAddress();
+		Assert.assertEquals("Only India Address Required for Regular Invoice", taxInvoice.getAlertMessage());
+		taxInvoice.clickOnOkButton();
+	}
+     @Test(priority=3)
+     public void validation() {
+    	 taxInvoice.clickOnConfirmButton();
+    	 
+    	 taxInvoice.checkRequiredFeilds();
+     }
 }
