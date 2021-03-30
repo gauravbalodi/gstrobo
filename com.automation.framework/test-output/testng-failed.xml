@@ -6,11 +6,22 @@
       <class name="com.automation.tests.TaxInvoiceTest">
         <methods>
           <include name="closeBrowser"/>
-          <include name="validation"/>
+          <include name="verifyIgstValue"/>
           <include name="before"/>
-          <include name="reload"/>
+          <include name="verifyIndianAlertMessage"/>
+          <include name="verifyRedirectionToTaxInvoicePage"/>
+          <include name="navigateToTaxInvoicePage"/>
           <include name="tearDown"/>
+          <include name="validation"/>
+          <include name="verifyIgstActFunctionality"/>
+          <include name="verifySupplyReverseCharge"/>
+          <include name="backToTaxInvoicePage"/>
+          <include name="navigateToAddTaxInvoicePage"/>
+          <include name="reload"/>
+          <include name="verifyCgstAndSgstValue"/>
           <include name="setup"/>
+          <include name="checkSameAsBillingAddressFunctionality"/>
+          <include name="invoiceTypeValidation"/>
         </methods>
       </class> <!-- com.automation.tests.TaxInvoiceTest -->
     </classes>

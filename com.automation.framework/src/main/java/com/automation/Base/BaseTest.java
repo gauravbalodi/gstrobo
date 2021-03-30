@@ -38,7 +38,7 @@ public class BaseTest extends BasePage {
 		
 		driver=new ChromeDriver();
 		
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		
 		driver.manage().window().maximize();
 		
@@ -52,7 +52,7 @@ public class BaseTest extends BasePage {
 		
 		clickOnElement("//Button[@ng-click='UserLogin()']",driver);
 
-		//Thread.sleep(1000);
+		Thread.sleep(1000);
 
         Select Gstin=new Select(driver.findElement(By.name("GSTINo")));
 		

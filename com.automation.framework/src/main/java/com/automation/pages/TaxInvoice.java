@@ -66,7 +66,7 @@ public class TaxInvoice {
 	@FindBy(xpath = "//body/div[@id='mainSectionLayout']/div[1]/div[2]/div[1]/section[2]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[6]/div[1]/select[1]")
 	WebElement differentialPercentage;
 
-	@FindBy(xpath = "//tbody/tr[1]/td[1]/div[1]/div[1]/button[1]/span[1]")
+	@FindBy(xpath = "//tbody/tr[1]/td[1]/div[1]/div[1]/select[1]")
 	WebElement itemOrProductName;
 
 	@FindBy(css = "input[title='Rate']")
@@ -87,7 +87,7 @@ public class TaxInvoice {
 	@FindBy(xpath = "//tbody/tr[1]/td[4]/ng-form[1]/div[1]/div[1]/select[1]")
 	WebElement unitType;
 
-	@FindBy(xpath = "//tbody/tr[1]/td[4]/ng-form[1]/div[1]/div[1]/select[1]")
+	@FindBy(xpath = "//tbody/tr[1]/td[6]/ng-form[1]/div[1]/div[1]/select[1]")
 	WebElement taxRateValue;
 
 	@FindBy(xpath = "//a[contains(text(),'Confirm')]")
@@ -159,17 +159,59 @@ public class TaxInvoice {
 	@FindBy(xpath = "//span[contains(text(),'Department required')]")
 	WebElement depReqMsg;
 
+	@FindBy(xpath = "//span[contains(text(),'Invoice type required')]")
+	WebElement invTypeReqMsg;
+
+	@FindBy(xpath = "//span[contains(text(),'Place of supply required')]")
+	WebElement posReqMsg;
+
+	@FindBy(xpath = "//span[contains(text(),'Legal/Trade Name of Business required.')]")
+	WebElement legalNameReqMsg;
+
 	@FindBy(xpath = "//tbody/tr[1]/td[2]/ng-form[1]/div[1]")
 	WebElement itemReqDiv;
 
 	@FindBy(xpath = "//tbody/tr[1]/td[2]/ng-form[1]/div[1]/span")
 	WebElement itemReqMsg;
 
+	@FindBy(xpath = "//span[contains(text(),'Tax to be Paid under Reverse charge')]")
+	WebElement supplyReverseChargeMsg;
+
+	@FindBy(xpath = "//tbody/tr[2]/td[2]")
+	WebElement igstValue;
+
+	@FindBy(xpath = "//tbody/tr[2]/td[3]")
+	WebElement cgstValue;
+
+	@FindBy(xpath = "//tbody/tr[2]/td[4]")
+	WebElement sgstValue;
+
+	public String checkCgstValue() {
+
+		return cgstValue.getText().trim().substring(1);
+
+	}
+
+	public String checkSgstValue() {
+
+		return sgstValue.getText().trim().substring(1);
+	}
+
+	public String checkIgstValue() {
+
+		return igstValue.getText().trim().substring(1);
+
+	}
+
+	public void checkReverseCharge() {
+		Assert.assertTrue(supplyReverseChargeMsg.isDisplayed());
+	}
+
 	public void checkRequiredFeilds() {
 		Assert.assertTrue(depReqMsg.isDisplayed());
-		Actions action = new Actions(getDriver());
-		action.moveToElement(itemReqDiv);
-		Assert.assertTrue(itemReqMsg.isDisplayed());
+		Assert.assertTrue(invTypeReqMsg.isDisplayed());
+		Assert.assertTrue(posReqMsg.isDisplayed());
+		Assert.assertTrue(legalNameReqMsg.isDisplayed());
 	}
 
 	public void clickOnOkButton() {
@@ -200,7 +242,7 @@ public class TaxInvoice {
 		sendIndianAddress1();
 		sendIndianAddress2();
 		selectIndianState();
-		Thread.sleep(2000);
+		// Thread.sleep(2000);
 		sendIndianCity();
 		selectIndianPincode();
 		clickOnAddressSaveButton();

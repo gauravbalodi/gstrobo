@@ -21,7 +21,7 @@ public class BillOfSupplyTest extends BaseTest {
 	
 	public void navigateToBillOfSupplyPage() {
 		
-		globalNavigation.navigateToInvoiceCreationPage();
+		globalNavigation.navigateToSalesInvoiceMenu();
 		
 		driver.findElement(By.xpath("//body/div[@id='mainSectionLayout']/div[1]/aside[1]/section[1]/ul[1]/li[3]/ul[1]/li[1]/ul[1]/li[3]/a[1]")).click();
 		

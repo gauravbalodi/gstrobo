@@ -12,6 +12,7 @@ public class GlobalNavigation extends BasePage{
 	@FindBy(xpath="//header/nav[1]/a[1]")
 	WebElement leftSideMenu;
 	
+	
 	@FindBy(xpath="//body/div[@id='mainSectionLayout']/div[1]/aside[1]/section[1]/ul[1]/li[3]/a[1]/span[2]/i[1]")
 	WebElement invoicesMenu;
 	
@@ -19,9 +20,11 @@ public class GlobalNavigation extends BasePage{
 	WebElement saleInvoiceMenu;
 	
 
-	public void navigateToInvoiceCreationPage() {
+	public void navigateToSalesInvoiceMenu() throws InterruptedException {
 		leftSideMenu.click();
 		invoicesMenu.click();
+		Thread.sleep(500);
 		saleInvoiceMenu.click();
+		Thread.sleep(500);
 	}
 }

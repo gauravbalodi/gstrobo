@@ -21,7 +21,7 @@ public class CreditDebitNoteTest extends BaseTest {
 	@Test(priority = 0)
 	public void navigateToCreditDebitPage() throws InterruptedException {
 
-		globalNavigation.navigateToInvoiceCreationPage();
+		globalNavigation.navigateToSalesInvoiceMenu();
 		Thread.sleep(2000);
 		WebElement CreditDebitNoteMenu = driver.findElement(By.xpath("//body/div[@id='mainSectionLayout']/div[1]/aside[1]/section[1]/ul[1]/li[3]/ul[1]/li[1]/ul[1]/li[2]"));
 		
