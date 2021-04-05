@@ -1,121 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="12" passed="12">
+<testng-results skipped="0" failed="1" ignored="0" total="3" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="53070" started-at="2021-03-31T03:31:02 IST" finished-at="2021-03-31T03:31:55 IST">
+  <suite name="Default suite" duration-ms="38650" started-at="2021-04-05T17:56:36 IST" finished-at="2021-04-05T17:57:14 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="53070" started-at="2021-03-31T03:31:02 IST" finished-at="2021-03-31T03:31:55 IST">
+    <test name="Default test" duration-ms="38650" started-at="2021-04-05T17:56:36 IST" finished-at="2021-04-05T17:57:14 IST">
       <class name="com.automation.tests.TaxInvoiceTest">
-        <test-method status="PASS" signature="before()[pri:0, instance:com.automation.tests.TaxInvoiceTest@7c29daf3]" name="before" is-config="true" duration-ms="22339" started-at="2021-03-31T03:30:39 IST" finished-at="2021-03-31T03:31:02 IST">
+        <test-method status="PASS" signature="before()[pri:0, instance:com.automation.tests.TaxInvoiceTest@1c3a4799]" name="before" is-config="true" duration-ms="24015" started-at="2021-04-05T17:56:12 IST" finished-at="2021-04-05T17:56:36 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- before -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:com.automation.tests.TaxInvoiceTest@7c29daf3]" name="setup" is-config="true" duration-ms="78" started-at="2021-03-31T03:31:02 IST" finished-at="2021-03-31T03:31:02 IST">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.automation.tests.TaxInvoiceTest@1c3a4799]" name="setup" is-config="true" duration-ms="82" started-at="2021-04-05T17:56:36 IST" finished-at="2021-04-05T17:56:36 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="reload()[pri:0, instance:com.automation.tests.TaxInvoiceTest@7c29daf3]" name="reload" is-config="true" duration-ms="25" started-at="2021-03-31T03:31:02 IST" finished-at="2021-03-31T03:31:02 IST">
+        <test-method status="PASS" signature="reload()[pri:0, instance:com.automation.tests.TaxInvoiceTest@1c3a4799]" name="reload" is-config="true" duration-ms="36" started-at="2021-04-05T17:56:36 IST" finished-at="2021-04-05T17:56:36 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reload -->
-        <test-method status="PASS" signature="navigateToTaxInvoicePage()[pri:1, instance:com.automation.tests.TaxInvoiceTest@7c29daf3]" name="navigateToTaxInvoicePage" duration-ms="4022" started-at="2021-03-31T03:31:02 IST" description="Verify User is able to redirect to Tax Invoice page." finished-at="2021-03-31T03:31:06 IST">
+        <test-method status="PASS" signature="navigateToTaxInvoicePage()[pri:1, instance:com.automation.tests.TaxInvoiceTest@1c3a4799]" name="navigateToTaxInvoicePage" duration-ms="5342" started-at="2021-04-05T17:56:36 IST" description="Verify User is able to redirect to Tax Invoice page." finished-at="2021-04-05T17:56:41 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- navigateToTaxInvoicePage -->
-        <test-method status="PASS" signature="reload()[pri:0, instance:com.automation.tests.TaxInvoiceTest@7c29daf3]" name="reload" is-config="true" duration-ms="13" started-at="2021-03-31T03:31:06 IST" finished-at="2021-03-31T03:31:06 IST">
+        <test-method status="PASS" signature="reload()[pri:0, instance:com.automation.tests.TaxInvoiceTest@1c3a4799]" name="reload" is-config="true" duration-ms="5310" started-at="2021-04-05T17:56:41 IST" finished-at="2021-04-05T17:56:47 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reload -->
-        <test-method status="PASS" signature="navigateToAddTaxInvoicePage()[pri:2, instance:com.automation.tests.TaxInvoiceTest@7c29daf3]" name="navigateToAddTaxInvoicePage" duration-ms="3857" started-at="2021-03-31T03:31:06 IST" description="Verify User is able to redirect to Add tax Invoice Page" finished-at="2021-03-31T03:31:10 IST">
+        <test-method status="PASS" signature="navigateToAddTaxInvoicePage()[pri:2, instance:com.automation.tests.TaxInvoiceTest@1c3a4799]" name="navigateToAddTaxInvoicePage" duration-ms="13485" started-at="2021-04-05T17:56:47 IST" description="Verify User is able to redirect to Add tax Invoice Page" finished-at="2021-04-05T17:57:00 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- navigateToAddTaxInvoicePage -->
-        <test-method status="PASS" signature="reload()[pri:0, instance:com.automation.tests.TaxInvoiceTest@7c29daf3]" name="reload" is-config="true" duration-ms="15" started-at="2021-03-31T03:31:10 IST" finished-at="2021-03-31T03:31:10 IST">
+        <test-method status="PASS" signature="reload()[pri:0, instance:com.automation.tests.TaxInvoiceTest@1c3a4799]" name="reload" is-config="true" duration-ms="25" started-at="2021-04-05T17:57:00 IST" finished-at="2021-04-05T17:57:00 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reload -->
-        <test-method status="PASS" signature="backToTaxInvoicePage()[pri:3, instance:com.automation.tests.TaxInvoiceTest@7c29daf3]" name="backToTaxInvoicePage" duration-ms="4524" started-at="2021-03-31T03:31:10 IST" description="Verify that user should redirect to Tax Invoice page after clicking on Cancel Button" finished-at="2021-03-31T03:31:14 IST">
+        <test-method status="FAIL" signature="verifyMultipleEntry()[pri:15, instance:com.automation.tests.TaxInvoiceTest@1c3a4799]" name="verifyMultipleEntry" duration-ms="14265" started-at="2021-04-05T17:57:00 IST" finished-at="2021-04-05T17:57:14 IST">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertTrue(Assert.java:45)
+at org.testng.Assert.assertTrue(Assert.java:55)
+at com.automation.pages.TaxInvoice.enterMultipleLineItems(TaxInvoice.java:225)
+at com.automation.tests.TaxInvoiceTest.verifyMultipleEntry(TaxInvoiceTest.java:194)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:132)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:599)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:174)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:822)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:147)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:764)
+at org.testng.TestRunner.run(TestRunner.java:585)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1218)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+at org.testng.TestNG.runSuites(TestNG.java:1069)
+at org.testng.TestNG.run(TestNG.java:1037)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- backToTaxInvoicePage -->
-        <test-method status="PASS" signature="reload()[pri:0, instance:com.automation.tests.TaxInvoiceTest@7c29daf3]" name="reload" is-config="true" duration-ms="1090" started-at="2021-03-31T03:31:14 IST" finished-at="2021-03-31T03:31:15 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reload -->
-        <test-method status="PASS" signature="validation()[pri:4, instance:com.automation.tests.TaxInvoiceTest@7c29daf3]" name="validation" duration-ms="2735" started-at="2021-03-31T03:31:15 IST" description="Verify that validations message should show for all mandatory fields" finished-at="2021-03-31T03:31:18 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validation -->
-        <test-method status="PASS" signature="reload()[pri:0, instance:com.automation.tests.TaxInvoiceTest@7c29daf3]" name="reload" is-config="true" duration-ms="24" started-at="2021-03-31T03:31:18 IST" finished-at="2021-03-31T03:31:18 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reload -->
-        <test-method status="PASS" signature="invoiceTypeValidation()[pri:5, instance:com.automation.tests.TaxInvoiceTest@7c29daf3]" name="invoiceTypeValidation" duration-ms="2951" started-at="2021-03-31T03:31:18 IST" description="Verify that alert message should show when user enters billing address without selecting Invoice Type." finished-at="2021-03-31T03:31:21 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- invoiceTypeValidation -->
-        <test-method status="PASS" signature="reload()[pri:0, instance:com.automation.tests.TaxInvoiceTest@7c29daf3]" name="reload" is-config="true" duration-ms="32" started-at="2021-03-31T03:31:21 IST" finished-at="2021-03-31T03:31:21 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reload -->
-        <test-method status="PASS" signature="checkSameAsBillingAddressFunctionality()[pri:6, instance:com.automation.tests.TaxInvoiceTest@7c29daf3]" name="checkSameAsBillingAddressFunctionality" duration-ms="5374" started-at="2021-03-31T03:31:21 IST" description="Verify that same billing address is fetching in shipping address section when user checks Same as billing address option" finished-at="2021-03-31T03:31:27 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkSameAsBillingAddressFunctionality -->
-        <test-method status="PASS" signature="reload()[pri:0, instance:com.automation.tests.TaxInvoiceTest@7c29daf3]" name="reload" is-config="true" duration-ms="21" started-at="2021-03-31T03:31:27 IST" finished-at="2021-03-31T03:31:27 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reload -->
-        <test-method status="PASS" signature="verifyIndianAlertMessage()[pri:7, instance:com.automation.tests.TaxInvoiceTest@7c29daf3]" name="verifyIndianAlertMessage" duration-ms="6645" started-at="2021-03-31T03:31:27 IST" description="An alert should show when user enters international address as billing address in case of Regular invoice type." finished-at="2021-03-31T03:31:33 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyIndianAlertMessage -->
-        <test-method status="PASS" signature="reload()[pri:0, instance:com.automation.tests.TaxInvoiceTest@7c29daf3]" name="reload" is-config="true" duration-ms="51" started-at="2021-03-31T03:31:33 IST" finished-at="2021-03-31T03:31:33 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reload -->
-        <test-method status="PASS" signature="verifySupplyReverseCharge()[pri:8, instance:com.automation.tests.TaxInvoiceTest@7c29daf3]" name="verifySupplyReverseCharge" duration-ms="2256" started-at="2021-03-31T03:31:33 IST" description="Verify that reverse charge should show when user checks Supply Attract Reverse Charge option" finished-at="2021-03-31T03:31:36 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifySupplyReverseCharge -->
-        <test-method status="PASS" signature="reload()[pri:0, instance:com.automation.tests.TaxInvoiceTest@7c29daf3]" name="reload" is-config="true" duration-ms="31" started-at="2021-03-31T03:31:36 IST" finished-at="2021-03-31T03:31:36 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reload -->
-        <test-method status="PASS" signature="verifyIgstValue()[pri:9, instance:com.automation.tests.TaxInvoiceTest@7c29daf3]" name="verifyIgstValue" duration-ms="3797" started-at="2021-03-31T03:31:36 IST" description="Verify that IGST value should not get calculate when user selects same POS state as of Supplier&#039;s" finished-at="2021-03-31T03:31:39 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyIgstValue -->
-        <test-method status="PASS" signature="reload()[pri:0, instance:com.automation.tests.TaxInvoiceTest@7c29daf3]" name="reload" is-config="true" duration-ms="15" started-at="2021-03-31T03:31:39 IST" finished-at="2021-03-31T03:31:39 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reload -->
-        <test-method status="PASS" signature="verifyCgstAndSgstValue()[pri:10, instance:com.automation.tests.TaxInvoiceTest@7c29daf3]" name="verifyCgstAndSgstValue" duration-ms="3954" started-at="2021-03-31T03:31:39 IST" description="Verify that CGST and SGST/UTGST value should not get calculate when user selects different POS state as of Supplier&#039;s" finished-at="2021-03-31T03:31:43 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyCgstAndSgstValue -->
-        <test-method status="PASS" signature="reload()[pri:0, instance:com.automation.tests.TaxInvoiceTest@7c29daf3]" name="reload" is-config="true" duration-ms="31" started-at="2021-03-31T03:31:43 IST" finished-at="2021-03-31T03:31:43 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reload -->
-        <test-method status="PASS" signature="verifyIgstActFunctionality()[pri:11, instance:com.automation.tests.TaxInvoiceTest@7c29daf3]" name="verifyIgstActFunctionality" duration-ms="4167" started-at="2021-03-31T03:31:43 IST" description="Verify that CGST and SGST/UTGST value should not get calculate when user checks IGST Act though POS state and Supplier&#039;s state is same" finished-at="2021-03-31T03:31:48 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyIgstActFunctionality -->
-        <test-method status="PASS" signature="reload()[pri:0, instance:com.automation.tests.TaxInvoiceTest@7c29daf3]" name="reload" is-config="true" duration-ms="22" started-at="2021-03-31T03:31:48 IST" finished-at="2021-03-31T03:31:48 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reload -->
-        <test-method status="PASS" signature="verifyRedirectionToTaxInvoicePage()[pri:12, instance:com.automation.tests.TaxInvoiceTest@7c29daf3]" name="verifyRedirectionToTaxInvoicePage" duration-ms="7223" started-at="2021-03-31T03:31:48 IST" description="Verify user is redirecting to Tax Invoice page after creating order" finished-at="2021-03-31T03:31:55 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyRedirectionToTaxInvoicePage -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.automation.tests.TaxInvoiceTest@7c29daf3]" name="tearDown" is-config="true" duration-ms="1" started-at="2021-03-31T03:31:55 IST" finished-at="2021-03-31T03:31:55 IST">
+        </test-method> <!-- verifyMultipleEntry -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.automation.tests.TaxInvoiceTest@1c3a4799]" name="tearDown" is-config="true" duration-ms="1" started-at="2021-04-05T17:57:14 IST" finished-at="2021-04-05T17:57:14 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.automation.tests.TaxInvoiceTest@7c29daf3]" name="closeBrowser" is-config="true" duration-ms="5858" started-at="2021-03-31T03:31:55 IST" finished-at="2021-03-31T03:32:01 IST">
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.automation.tests.TaxInvoiceTest@1c3a4799]" name="closeBrowser" is-config="true" duration-ms="5959" started-at="2021-04-05T17:57:14 IST" finished-at="2021-04-05T17:57:20 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->

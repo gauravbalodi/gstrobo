@@ -3,6 +3,7 @@ package com.automation.pages;
 import java.util.Set;
 
 import java.util.Iterator;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -155,6 +156,9 @@ public class TaxInvoice {
 
 	@FindBy(xpath = "//div[@id='divAlert']//div[@class='modal-body']/div[2]//button")
 	WebElement okAlertMessages;
+	
+	@FindBy(xpath = "//div[@id='divConfirm']//button[@ng-click='DeleteItem(Confirm.Id)']")
+	WebElement confirmDelete;
 
 	@FindBy(xpath = "//span[contains(text(),'Department required')]")
 	WebElement depReqMsg;
@@ -185,6 +189,65 @@ public class TaxInvoice {
 
 	@FindBy(xpath = "//tbody/tr[2]/td[4]")
 	WebElement sgstValue;
+	
+	@FindBy(xpath = "//div[contains(text(),'Invoice saved successfully.')]")
+	WebElement invoiceCreationMsg;
+	
+	@FindBy(xpath = "//tbody[@ng-repeat='n in DisplayInvoiceList'][1]/tr[1]/td[4]/a")
+	WebElement createdInvoice;
+	
+	public void enterMultipleLineItems() throws Exception {
+		int row;
+		int length=5;
+		for (row = 1; row<=length; row++) {
+			Thread.sleep(500);
+			WebDriver driver = getDriver();
+			WebElement itemProductName = driver.findElement(By.xpath("//tbody/tr["+row+"]/td[1]/div[1]/div[1]/select[1]"));
+			WebElement addButton = driver.findElement(By.xpath("//tbody/tr["+row+"]/td[11]/button[@data-original-title='Add']"));
+			WebElement qty = driver.findElement(By.xpath("//tbody/tr["+row+"]/td[5]//input"));
+			
+			
+			String productName = Configuration.getConfig("itemName");
+			Select itemName = new Select(itemProductName);
+			itemName.selectByVisibleText(productName);
+			String quantity = Configuration.getConfig("itemQuantity");
+			qty.clear();
+			qty.sendKeys(quantity);
+			
+			if(row == length) {
+				break;
+			}
+			addButton.click();
+			
+		}
+		//System.out.println(row);
+		//WebElement lastItem = getDriver().findElement(By.xpath("//tbody/tr["+length+"]/td[1]/div[1]/div[1]/select[1]"));
+		//Assert.assertTrue(lastItem.isDisplayed());
+		
+		WebElement delete = getDriver().findElement(By.xpath("//tbody/tr["+4+"]/td[11]/button[@data-original-title='Delete']"));
+		delete.click();
+		confirmDelete.click();
+		
+		//List<WebElement> totalItems = getDriver().findElements(By.xpath("//tbody/tr[@ng-hide='item.IsDeleted']"));
+		//Assert.assertEquals(totalItems.size(), 4);
+	}
+	
+	private Object item(int i, int j) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getCreatedInvoice() {
+		return createdInvoice.getText();
+	}
+	
+	public String getInvoiceNo() throws InterruptedException {
+		Thread.sleep(1000);
+		String invoice = invoiceCreationMsg.getText();
+		System.out.println(invoice);
+		return invoice.substring(invoice.length()-10);
+		 
+	}
 
 	public String checkCgstValue() {
 
