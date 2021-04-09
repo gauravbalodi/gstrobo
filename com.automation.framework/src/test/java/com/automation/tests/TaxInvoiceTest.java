@@ -22,15 +22,15 @@ public class TaxInvoiceTest extends BaseTest {
 
 	@Test(priority = 1, description = "Verify User is able to redirect to Tax Invoice page.")
 	public void navigateToTaxInvoicePage() throws InterruptedException {
-		Thread.sleep(1000);
+		
 		globalNavigation.navigateToSalesInvoiceMenu();
-		taxInvoice.clivkOnTaxInvoiceMenu();
 		Assert.assertEquals("Tax Invoice", taxInvoice.getTaxInvoiceText());
 	}
 
 	@Test(priority = 2, description = "Verify User is able to redirect to Add tax Invoice Page")
 	public void navigateToAddTaxInvoicePage() throws InterruptedException {
 		Thread.sleep(6000);
+		globalNavigation.navigateToAddTaxInvoicePage();
 		taxInvoice.clickOnNewTaxInvoiceButton();
 		Assert.assertEquals("Add Tax Invoice", taxInvoice.getaddtaxInvoiceText());
 
@@ -187,11 +187,50 @@ public class TaxInvoiceTest extends BaseTest {
 		driver.navigate().forward();
 	}
 	
-	@Test(priority=15)
-	public void verifyMultipleEntry() throws Exception {
+	//@Test(priority=15, description="User is able to create Tax Invoice with multiple line items")
+	public void verifyMultipleLineItems() throws Exception {
 		taxInvoice.clickOnRegularRadioButton();
 		taxInvoice.selectPlaceOfSupply("TAMIL NADU");
+		taxInvoice.clickOnRegularRadioButton();
+		taxInvoice.sendGstinNo();
+		taxInvoice.selectDepartment();
+		taxInvoice.selectPlaceOfSupply("DELHI");
+		taxInvoice.indianBillingAddress();
 		taxInvoice.enterMultipleLineItems();
+		taxInvoice.clickOnConfirmButton();
+		String invoice = taxInvoice.getInvoiceNo();
+		Thread.sleep(3000);
+		String createdInvoice = taxInvoice.getCreatedInvoice();
+		Assert.assertEquals(invoice, createdInvoice);
+		driver.navigate().forward();
+	}
+  
+	//@Test(priority=16, description="User is able to delete multiple line items")
+	public void deleteMultipleLineItems() throws Exception {
+		taxInvoice.clickOnRegularRadioButton();
+		taxInvoice.sendGstinNo();
+		taxInvoice.selectDepartment();
+		taxInvoice.selectPlaceOfSupply("DELHI");
+		taxInvoice.indianBillingAddress();
+		taxInvoice.deleteLineItem();			
+	}
+	
+	@Test(priority=17)
+	public void editCreatedTaxInvoice() throws Exception {
+		taxInvoice.clickOnRegularRadioButton();
+		taxInvoice.sendGstinNo();
+		taxInvoice.selectDepartment();
+		taxInvoice.selectPlaceOfSupply("TAMIL NADU");
+		taxInvoice.indianBillingAddress();
+		taxInvoice.selectitemName();
+		taxInvoice.sendItemQuantity();
+		taxInvoice.selecttaxRate();
+		taxInvoice.clickOnConfirmButton();
+		Thread.sleep(3000);
+		taxInvoice.clickOnEditButton();
+		taxInvoice.selectPlaceOfSupply("DELHI");
+		taxInvoice.clickOnConfirmButton();
+		Assert.assertEquals("Invoice updated successfully", taxInvoice.getAlertMessage());	
 	}
 
 }

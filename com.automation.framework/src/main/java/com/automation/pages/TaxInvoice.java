@@ -193,18 +193,37 @@ public class TaxInvoice {
 	@FindBy(xpath = "//div[contains(text(),'Invoice saved successfully.')]")
 	WebElement invoiceCreationMsg;
 	
+	@FindBy(xpath="xpath=//div[contains(text(),'Invoice updated successfully')]")
+	WebElement invoiceUpdateMsg;
+	
 	@FindBy(xpath = "//tbody[@ng-repeat='n in DisplayInvoiceList'][1]/tr[1]/td[4]/a")
 	WebElement createdInvoice;
 	
+	@FindBy(xpath="//tbody[@ng-repeat='n in DisplayInvoiceList'][1]//td[8]/button[1]/i")
+	WebElement editButton;
+	
+	public String getInvoiceUpdatemsg() throws InterruptedException {
+		Thread.sleep(1000);
+		String updateMsg= invoiceUpdateMsg.getText();
+		System.out.println(updateMsg);
+		return updateMsg;
+		
+		
+	}
+	public void clickOnEditButton() {
+		editButton.click();
+	}
+	
 	public void enterMultipleLineItems() throws Exception {
 		int row;
-		int length=5;
+		int length=6;
 		for (row = 1; row<=length; row++) {
 			Thread.sleep(500);
 			WebDriver driver = getDriver();
 			WebElement itemProductName = driver.findElement(By.xpath("//tbody/tr["+row+"]/td[1]/div[1]/div[1]/select[1]"));
 			WebElement addButton = driver.findElement(By.xpath("//tbody/tr["+row+"]/td[11]/button[@data-original-title='Add']"));
 			WebElement qty = driver.findElement(By.xpath("//tbody/tr["+row+"]/td[5]//input"));
+			WebElement tax= driver.findElement(By.xpath("//tbody/tr["+row+"]/td[6]/ng-form/div[1]/div[1]/select[1]"));
 			
 			
 			String productName = Configuration.getConfig("itemName");
@@ -213,7 +232,10 @@ public class TaxInvoice {
 			String quantity = Configuration.getConfig("itemQuantity");
 			qty.clear();
 			qty.sendKeys(quantity);
-			
+			String taxRates = Configuration.getConfig("taxRate");
+			Select taxRate = new Select(tax);
+			taxRate.selectByVisibleText(taxRates);
+				
 			if(row == length) {
 				break;
 			}
@@ -224,14 +246,24 @@ public class TaxInvoice {
 		//WebElement lastItem = getDriver().findElement(By.xpath("//tbody/tr["+length+"]/td[1]/div[1]/div[1]/select[1]"));
 		//Assert.assertTrue(lastItem.isDisplayed());
 		
-		WebElement delete = getDriver().findElement(By.xpath("//tbody/tr["+4+"]/td[11]/button[@data-original-title='Delete']"));
-		delete.click();
-		confirmDelete.click();
+		//WebElement delete = getDriver().findElement(By.xpath("//tbody/tr["+4+"]/td[11]/button[@data-original-title='Delete']"));
+		///delete.click();
+		//confirmDelete.click();
 		
 		//List<WebElement> totalItems = getDriver().findElements(By.xpath("//tbody/tr[@ng-hide='item.IsDeleted']"));
 		//Assert.assertEquals(totalItems.size(), 4);
 	}
 	
+   public void deleteLineItem() throws Exception {
+	    enterMultipleLineItems();
+		WebElement delete = getDriver().findElement(By.xpath("//tbody/tr["+4+"]/td[11]/button[@data-original-title='Delete']"));
+		delete.click();
+		confirmDelete.click();
+	
+		List<WebElement> totalItems = getDriver().findElements(By.xpath("//tbody/tr[@ng-hide='item.IsDeleted']"));
+		Assert.assertEquals(totalItems.size(), 4);
+	}
+   
 	private Object item(int i, int j) {
 		// TODO Auto-generated method stub
 		return null;
