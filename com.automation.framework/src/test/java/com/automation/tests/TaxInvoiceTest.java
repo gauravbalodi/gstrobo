@@ -512,5 +512,17 @@ public class TaxInvoiceTest extends BaseTest {
 		taxInvoice.clickOnExportRadioButton();
 		Assert.assertTrue(taxInvoice.checkCurrencyReqMsg());
 			
-	}
+    }
+	
+
+	@Test(priority = 51, description="Verify that currency field should get mandatory and validation message should also show when user switch to regular invoice type from export and again switch to Export Invoice type")
+	public void checkCurrencyValidationMsg() {
+		taxInvoice.clickOnExportRadioButton();
+		taxInvoice.clickOnConfirmButton();
+		Assert.assertFalse(taxInvoice.checkCurrencyReqMsg());
+		taxInvoice.clickOnRegularRadioButton();
+		taxInvoice.clickOnExportRadioButton();
+		Assert.assertTrue(taxInvoice.checkCurrencyReqMsg());
+			
+    }
 }
