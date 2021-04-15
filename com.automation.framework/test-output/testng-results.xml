@@ -1,213 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="3" failed="0" ignored="0" total="3" passed="0">
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="362" started-at="2021-04-09T16:33:43 IST" finished-at="2021-04-09T16:33:44 IST">
+  <suite name="Default suite" duration-ms="18148" started-at="2021-04-16T02:25:03 IST" finished-at="2021-04-16T02:25:21 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="362" started-at="2021-04-09T16:33:43 IST" finished-at="2021-04-09T16:33:44 IST">
+    <test name="Default test" duration-ms="18148" started-at="2021-04-16T02:25:03 IST" finished-at="2021-04-16T02:25:21 IST">
       <class name="com.automation.tests.TaxInvoiceTest">
-        <test-method status="FAIL" signature="before()[pri:0, instance:com.automation.tests.TaxInvoiceTest@1c3a4799]" name="before" is-config="true" duration-ms="9708" started-at="2021-04-09T16:33:33 IST" finished-at="2021-04-09T16:33:43 IST">
-          <exception class="org.openqa.selenium.NoSuchElementException">
-            <message>
-              <![CDATA[Cannot locate an element using name=txtPwd
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-THTD9N4', ip: '192.168.8.111', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_271'
-Driver info: driver.version: RemoteWebDriver]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: Cannot locate an element using name=txtPwd
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-THTD9N4', ip: '192.168.8.111', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_271'
-Driver info: driver.version: RemoteWebDriver
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:327)
-at org.openqa.selenium.remote.RemoteWebDriver.findElementByName(RemoteWebDriver.java:404)
-at org.openqa.selenium.By$ByName.findElement(By.java:284)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-at com.automation.Base.BaseTest.before(BaseTest.java:49)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:132)
-at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:61)
-at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:366)
-at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:320)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:327)
-at org.testng.SuiteRunner.run(SuiteRunner.java:286)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1218)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
-at org.testng.TestNG.runSuites(TestNG.java:1069)
-at org.testng.TestNG.run(TestNG.java:1037)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+        <test-method status="PASS" signature="before()[pri:0, instance:com.automation.tests.TaxInvoiceTest@7494e528]" name="before" is-config="true" duration-ms="20905" started-at="2021-04-16T02:24:42 IST" finished-at="2021-04-16T02:25:03 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- before -->
-        <test-method status="SKIP" signature="setup()[pri:0, instance:com.automation.tests.TaxInvoiceTest@1c3a4799]" name="setup" is-config="true" duration-ms="-1617966223860" started-at="2021-04-09T16:33:43 IST" finished-at="1970-01-01T05:30:00 IST">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.automation.tests.TaxInvoiceTest@7494e528]" name="setup" is-config="true" duration-ms="84" started-at="2021-04-16T02:25:03 IST" finished-at="2021-04-16T02:25:03 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="SKIP" signature="reload()[pri:0, instance:com.automation.tests.TaxInvoiceTest@1c3a4799]" name="reload" is-config="true" duration-ms="-1617966223932" started-at="2021-04-09T16:33:43 IST" finished-at="1970-01-01T05:30:00 IST">
+        <test-method status="PASS" signature="reload()[pri:0, instance:com.automation.tests.TaxInvoiceTest@7494e528]" name="reload" is-config="true" duration-ms="49" started-at="2021-04-16T02:25:03 IST" finished-at="2021-04-16T02:25:03 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reload -->
-        <test-method status="SKIP" signature="navigateToTaxInvoicePage()[pri:1, instance:com.automation.tests.TaxInvoiceTest@1c3a4799]" name="navigateToTaxInvoicePage" duration-ms="0" started-at="2021-04-09T16:33:43 IST" description="Verify User is able to redirect to Tax Invoice page." finished-at="2021-04-09T16:33:43 IST">
-          <exception class="org.openqa.selenium.NoSuchElementException">
-            <message>
-              <![CDATA[Cannot locate an element using name=txtPwd
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-THTD9N4', ip: '192.168.8.111', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_271'
-Driver info: driver.version: RemoteWebDriver]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: Cannot locate an element using name=txtPwd
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-THTD9N4', ip: '192.168.8.111', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_271'
-Driver info: driver.version: RemoteWebDriver
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:327)
-at org.openqa.selenium.remote.RemoteWebDriver.findElementByName(RemoteWebDriver.java:404)
-at org.openqa.selenium.By$ByName.findElement(By.java:284)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-at com.automation.Base.BaseTest.before(BaseTest.java:49)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:132)
-at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:61)
-at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:366)
-at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:320)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:327)
-at org.testng.SuiteRunner.run(SuiteRunner.java:286)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1218)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
-at org.testng.TestNG.runSuites(TestNG.java:1069)
-at org.testng.TestNG.run(TestNG.java:1037)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+        <test-method status="PASS" signature="navigateToTaxInvoicePage()[pri:1, instance:com.automation.tests.TaxInvoiceTest@7494e528]" name="navigateToTaxInvoicePage" duration-ms="6792" started-at="2021-04-16T02:25:03 IST" description="Verify User is able to redirect to Tax Invoice page." finished-at="2021-04-16T02:25:10 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- navigateToTaxInvoicePage -->
-        <test-method status="SKIP" signature="reload()[pri:0, instance:com.automation.tests.TaxInvoiceTest@1c3a4799]" name="reload" is-config="true" duration-ms="-1617966223964" started-at="2021-04-09T16:33:43 IST" finished-at="1970-01-01T05:30:00 IST">
+        <test-method status="PASS" signature="reload()[pri:0, instance:com.automation.tests.TaxInvoiceTest@7494e528]" name="reload" is-config="true" duration-ms="35" started-at="2021-04-16T02:25:10 IST" finished-at="2021-04-16T02:25:10 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reload -->
-        <test-method status="SKIP" signature="navigateToAddTaxInvoicePage()[pri:2, instance:com.automation.tests.TaxInvoiceTest@1c3a4799]" name="navigateToAddTaxInvoicePage" duration-ms="0" started-at="2021-04-09T16:33:43 IST" description="Verify User is able to redirect to Add tax Invoice Page" finished-at="2021-04-09T16:33:43 IST">
-          <exception class="org.openqa.selenium.NoSuchElementException">
-            <message>
-              <![CDATA[Cannot locate an element using name=txtPwd
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-THTD9N4', ip: '192.168.8.111', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_271'
-Driver info: driver.version: RemoteWebDriver]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: Cannot locate an element using name=txtPwd
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-THTD9N4', ip: '192.168.8.111', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_271'
-Driver info: driver.version: RemoteWebDriver
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:327)
-at org.openqa.selenium.remote.RemoteWebDriver.findElementByName(RemoteWebDriver.java:404)
-at org.openqa.selenium.By$ByName.findElement(By.java:284)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-at com.automation.Base.BaseTest.before(BaseTest.java:49)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:132)
-at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:61)
-at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:366)
-at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:320)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:327)
-at org.testng.SuiteRunner.run(SuiteRunner.java:286)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1218)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
-at org.testng.TestNG.runSuites(TestNG.java:1069)
-at org.testng.TestNG.run(TestNG.java:1037)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+        <test-method status="PASS" signature="navigateToAddTaxInvoicePage()[pri:2, instance:com.automation.tests.TaxInvoiceTest@7494e528]" name="navigateToAddTaxInvoicePage" duration-ms="8372" started-at="2021-04-16T02:25:10 IST" description="Verify User is able to redirect to Add tax Invoice Page" finished-at="2021-04-16T02:25:19 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- navigateToAddTaxInvoicePage -->
-        <test-method status="SKIP" signature="reload()[pri:0, instance:com.automation.tests.TaxInvoiceTest@1c3a4799]" name="reload" is-config="true" duration-ms="-1617966223986" started-at="2021-04-09T16:33:43 IST" finished-at="1970-01-01T05:30:00 IST">
+        <test-method status="PASS" signature="reload()[pri:0, instance:com.automation.tests.TaxInvoiceTest@7494e528]" name="reload" is-config="true" duration-ms="1255" started-at="2021-04-16T02:25:19 IST" finished-at="2021-04-16T02:25:20 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reload -->
-        <test-method status="SKIP" signature="editCreatedTaxInvoice()[pri:17, instance:com.automation.tests.TaxInvoiceTest@1c3a4799]" name="editCreatedTaxInvoice" duration-ms="0" started-at="2021-04-09T16:33:43 IST" finished-at="2021-04-09T16:33:43 IST">
-          <exception class="org.openqa.selenium.NoSuchElementException">
-            <message>
-              <![CDATA[Cannot locate an element using name=txtPwd
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-THTD9N4', ip: '192.168.8.111', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_271'
-Driver info: driver.version: RemoteWebDriver]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: Cannot locate an element using name=txtPwd
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-THTD9N4', ip: '192.168.8.111', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_271'
-Driver info: driver.version: RemoteWebDriver
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:327)
-at org.openqa.selenium.remote.RemoteWebDriver.findElementByName(RemoteWebDriver.java:404)
-at org.openqa.selenium.By$ByName.findElement(By.java:284)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-at com.automation.Base.BaseTest.before(BaseTest.java:49)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:132)
-at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:61)
-at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:366)
-at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:320)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:327)
-at org.testng.SuiteRunner.run(SuiteRunner.java:286)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1218)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
-at org.testng.TestNG.runSuites(TestNG.java:1069)
-at org.testng.TestNG.run(TestNG.java:1037)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+        <test-method status="PASS" signature="checkCurrencyValidationMsg()[pri:51, instance:com.automation.tests.TaxInvoiceTest@7494e528]" name="checkCurrencyValidationMsg" duration-ms="1472" started-at="2021-04-16T02:25:20 IST" description="Verify that currency field should get mandatory and validation message should also show when user switch to regular invoice type from export and again switch to Export Invoice type" finished-at="2021-04-16T02:25:21 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- editCreatedTaxInvoice -->
-        <test-method status="SKIP" signature="tearDown()[pri:0, instance:com.automation.tests.TaxInvoiceTest@1c3a4799]" name="tearDown" is-config="true" duration-ms="-1617966223998" started-at="2021-04-09T16:33:43 IST" finished-at="1970-01-01T05:30:00 IST">
+        </test-method> <!-- checkCurrencyValidationMsg -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.automation.tests.TaxInvoiceTest@7494e528]" name="tearDown" is-config="true" duration-ms="1" started-at="2021-04-16T02:25:21 IST" finished-at="2021-04-16T02:25:21 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="SKIP" signature="closeBrowser()[pri:0, instance:com.automation.tests.TaxInvoiceTest@1c3a4799]" name="closeBrowser" is-config="true" duration-ms="-1617966224175" started-at="2021-04-09T16:33:44 IST" finished-at="1970-01-01T05:30:00 IST">
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.automation.tests.TaxInvoiceTest@7494e528]" name="closeBrowser" is-config="true" duration-ms="5957" started-at="2021-04-16T02:25:21 IST" finished-at="2021-04-16T02:25:27 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->

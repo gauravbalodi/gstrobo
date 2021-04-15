@@ -17,14 +17,15 @@ public class GlobalNavigation extends BaseTest {
 	
 	@FindBy(xpath="//header/nav[1]/a[1]")
 	WebElement leftSideMenu;
-	
-	
+		
 	@FindBy(xpath="//body/div[@id='mainSectionLayout']/div[1]/aside[1]/section[1]/ul[1]/li[3]/a[1]/span[2]/i[1]")
 	WebElement invoicesMenu;
 	
 	@FindBy(xpath="//span[contains(text(),'Sale Invoices')]")
 	WebElement saleInvoiceMenu;
 	
+	@FindBy(xpath="//body/div[@id='mainSectionLayout']/div[1]/aside[1]/section[1]/ul[1]/li[3]/ul[1]/li[1]/ul[1]/li[1]/a[1]")
+	WebElement taxInvoiceMenu;
 
 	public void navigateToSalesInvoiceMenu() throws InterruptedException {
 	
@@ -34,13 +35,11 @@ public class GlobalNavigation extends BaseTest {
 		Thread.sleep(500);
 		saleInvoiceMenu.click();
 		Thread.sleep(500);
+		taxInvoiceMenu.click();
+		
 	}
 	
-	public void navigateToAddTaxInvoicePage() {
-		WebDriver driver= getDriver();
-		WebDriverWait wait = new WebDriverWait(driver,30);
-		wait.until(ExpectedConditions.elementToBeClickable(taxInvoice.newInvoiceButton));
-		taxInvoice.clickOnNewTaxInvoiceButton();
-	}
+	
+	
 }
 

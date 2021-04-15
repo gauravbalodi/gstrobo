@@ -5,13 +5,15 @@
     <classes>
       <class name="com.automation.tests.TaxInvoiceTest">
         <methods>
+          <include name="checkExportTypevalidationMsg"/>
           <include name="closeBrowser"/>
+          <include name="checkShipBillExDateValidationMsg"/>
           <include name="before"/>
-          <include name="editCreatedTaxInvoice"/>
           <include name="navigateToAddTaxInvoicePage"/>
           <include name="navigateToTaxInvoicePage"/>
           <include name="reload"/>
           <include name="tearDown"/>
+          <include name="checkShipBillNoValidationMsg"/>
           <include name="setup"/>
         </methods>
       </class> <!-- com.automation.tests.TaxInvoiceTest -->

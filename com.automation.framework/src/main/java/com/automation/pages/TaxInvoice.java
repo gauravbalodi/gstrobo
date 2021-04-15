@@ -24,7 +24,7 @@ public class TaxInvoice {
 
 	@FindBy(css = "input[name='GstinNo']")
 	WebElement gstinNo;
-
+	
 	@FindBy(xpath = "//body/div[@id='mainSectionLayout']/div[1]/div[2]/div[1]/section[2]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ng-form[1]/div[1]/label[1]")
 	WebElement outsideElement;
 
@@ -54,7 +54,10 @@ public class TaxInvoice {
 
 	@FindBy(xpath = "//select[@id='POS']")
 	WebElement placeOfSupply;
-
+	
+	@FindBy(xpath="//label[contains(text(),'Place of Supply')]")
+	WebElement posIsDisplayed;
+	
 	@FindBy(xpath = "//body/div[@id='mainSectionLayout']/div[1]/div[2]/div[1]/section[2]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[2]/div[1]/div[1]/label[1]")
 	WebElement supplyAttractReverseCharge;
 
@@ -64,6 +67,9 @@ public class TaxInvoice {
 	@FindBy(xpath = "//body/div[@id='mainSectionLayout']/div[1]/div[2]/div[1]/section[2]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[4]/div[1]/div[1]/label[1]")
 	WebElement igstAct;
 
+	@FindBy(xpath="//body[1]/div[1]/div[1]/div[2]/div[1]/section[2]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[5]/div[1]/div[1]/label[1]")
+	WebElement suppClaimRefund;
+	
 	@FindBy(xpath = "//body/div[@id='mainSectionLayout']/div[1]/div[2]/div[1]/section[2]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[6]/div[1]/select[1]")
 	WebElement differentialPercentage;
 
@@ -171,6 +177,19 @@ public class TaxInvoice {
 
 	@FindBy(xpath = "//span[contains(text(),'Legal/Trade Name of Business required.')]")
 	WebElement legalNameReqMsg;
+	
+	@FindBy(xpath = "//span[contains(text(),'Export type required')]")
+	WebElement exportTypeReqMsg;
+	
+	@FindBy(xpath="//span[contains(text(),'Shipping bill export date required')]")
+	WebElement shipBillExDateReqMsg;
+	
+	@FindBy(xpath="//span[contains(text(),'Currency required')]")
+	WebElement currencyReqMsg;
+	
+	
+	@FindBy(xpath="//span[contains(text(),'Shipping bill no. required')]")
+	WebElement shipBillNoReqMsg;
 
 	@FindBy(xpath = "//tbody/tr[1]/td[2]/ng-form[1]/div[1]")
 	WebElement itemReqDiv;
@@ -190,6 +209,9 @@ public class TaxInvoice {
 	@FindBy(xpath = "//tbody/tr[2]/td[4]")
 	WebElement sgstValue;
 	
+	@FindBy(xpath="//tbody/tr[2]/td[6]")
+	WebElement totalTaxValue;
+	
 	@FindBy(xpath = "//div[contains(text(),'Invoice saved successfully.')]")
 	WebElement invoiceCreationMsg;
 	
@@ -201,6 +223,69 @@ public class TaxInvoice {
 	
 	@FindBy(xpath="//tbody[@ng-repeat='n in DisplayInvoiceList'][1]//td[8]/button[1]/i")
 	WebElement editButton;
+	
+	@FindBy(xpath="//input[@id='ShipBillno']")
+	WebElement shippingBillNo;
+	
+	@FindBy(xpath="//input[@id='txtShipBillDate']")
+	WebElement shipBillDate;
+	
+	@FindBy(xpath="//select[@id='InvoiceTypeDesc']")
+	WebElement exportType;
+	
+	@FindBy(xpath="//input[@id='PortCode']")
+	WebElement portCode;
+	
+	public boolean isDifferentialPercentageDisplayed() {
+		return differentialPercentage.isDisplayed();
+	}
+	
+	public boolean isIgstActDisplayed() {
+		return igstAct.isDisplayed();	
+	}
+
+	public boolean isPosFieldDisplayed() {
+		
+		return posIsDisplayed.isDisplayed();
+	}
+	
+	public boolean isGstinFieldDisplayed() {
+		return gstinNo.isDisplayed();
+		
+	}
+	public void clickOnPortCode() {
+		portCode.click();
+	}
+	
+	public void selectPortCode() {
+		WebDriver driver=getDriver();
+		String parentWindow= driver.getWindowHandle();
+		System.out.println(parentWindow);
+		clickOnPortCode();
+		Set<String> availableWindows= driver.getWindowHandles();
+		Iterator<String> it= availableWindows.iterator();
+		it.next();
+        String childWindow=it.next();
+		System.out.println(childWindow);
+		driver.switchTo().window(childWindow);
+		driver.findElement(By.xpath("//tr[@ng-repeat='item in PortAddressList'][4]/td[1]")).click();
+		driver.findElement(By.xpath("//button[contains(text(),'Add Port')]")).click();
+		driver.switchTo().window(parentWindow);
+		}
+			
+	public void selectExportType(String value) {
+		Select expType= new Select(exportType);
+		expType.selectByVisibleText(value);
+	}
+	
+	public void clickOnShipBillDate() {
+		shipBillDate.click();	
+	}
+	
+	public void sendShippinfBillNo() throws Exception {
+		String billNo= Configuration.getConfig("billOfExportNo");
+		shippingBillNo.sendKeys(billNo);
+	}
 	
 	public String getInvoiceUpdatemsg() throws InterruptedException {
 		Thread.sleep(1000);
@@ -264,11 +349,6 @@ public class TaxInvoice {
 		Assert.assertEquals(totalItems.size(), 4);
 	}
    
-	private Object item(int i, int j) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	public String getCreatedInvoice() {
 		return createdInvoice.getText();
 	}
@@ -298,10 +378,15 @@ public class TaxInvoice {
 
 	}
 
+	public String checkTotalTaxValue() {
+		return totalTaxValue.getText().trim().substring(1);
+	}
+	
 	public void checkReverseCharge() {
 		Assert.assertTrue(supplyReverseChargeMsg.isDisplayed());
 	}
 
+	
 	public void checkRequiredFeilds() {
 		Assert.assertTrue(depReqMsg.isDisplayed());
 		Assert.assertTrue(invTypeReqMsg.isDisplayed());
@@ -309,13 +394,29 @@ public class TaxInvoice {
 		Assert.assertTrue(legalNameReqMsg.isDisplayed());
 	}
 
+	public void checkExportTypeReqMsg() {
+		Assert.assertTrue(exportTypeReqMsg.isDisplayed());
+	}
+	public void checkShipBillNoReqMsg() {
+		Assert.assertTrue(shipBillNoReqMsg.isDisplayed());
+	}
+	
+	public void checkShipBillExDateReqMsg() {
+		Assert.assertTrue(shipBillExDateReqMsg.isDisplayed());
+	}
+	
+	public boolean checkCurrencyReqMsg() {
+		return currencyReqMsg.isDisplayed();
+	}
+	
 	public void clickOnOkButton() {
 		okAlertMessages.click();
 	}
 
 	public String getAlertMessage() {
-
-		return alertMessages.getText();
+        String msg= alertMessages.getText();
+        System.out.println("msg id"+ msg);
+		return msg;
 	}
 
 	public WebDriver getDriver() {
@@ -337,13 +438,12 @@ public class TaxInvoice {
 		sendIndianAddress1();
 		sendIndianAddress2();
 		selectIndianState();
-		// Thread.sleep(2000);
 		sendIndianCity();
 		selectIndianPincode();
 		clickOnAddressSaveButton();
 		driver.switchTo().window(parentWindow);
 	}
-
+	
 	public void internationalBillingAddress() throws Exception {
 		WebDriver driver = getDriver();
 		String parentWindow = driver.getWindowHandle();
@@ -519,10 +619,21 @@ public class TaxInvoice {
 		igstAct.click();
 	}
 
+	public void clickOnIsSuppClaimRefund() {
+		suppClaimRefund.click();
+		
+	}
+	
+	
+	public boolean isSuppClaimIsDisplayed() {
+		return suppClaimRefund.isDisplayed();
+	}
+	
 	public void clickOnautoPopulateForRefunds() {
 		autoPopulateForRefunds.click();
 	}
 
+	
 	public void clickOnRegularRadioButton() {
 		regularRadioButton.click();
 	}
