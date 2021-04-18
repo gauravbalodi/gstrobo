@@ -10,7 +10,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import com.automation.Base.BaseTest;
@@ -19,7 +21,7 @@ import Utilities.Configuration;
 
 public class TaxInvoice {
 
-	@FindBy(xpath = "//label[@class='radio-inline']")
+    @FindBy(xpath = "//label[@class='radio-inline']")
 	WebElement regularRadioButton;
 
 	@FindBy(css = "input[name='GstinNo']")
@@ -236,6 +238,13 @@ public class TaxInvoice {
 	@FindBy(xpath="//input[@id='PortCode']")
 	WebElement portCode;
 	
+	public void newInvoiceButtonWait() {
+		WebDriver driver= getDriver();
+		WebDriverWait wait = new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.elementToBeClickable(newInvoiceButton));
+		newInvoiceButton.click();
+	}
+	
 	public boolean isDifferentialPercentageDisplayed() {
 		return differentialPercentage.isDisplayed();
 	}
@@ -341,12 +350,14 @@ public class TaxInvoice {
 	
    public void deleteLineItem() throws Exception {
 	    enterMultipleLineItems();
-		WebElement delete = getDriver().findElement(By.xpath("//tbody/tr["+4+"]/td[11]/button[@data-original-title='Delete']"));
+		WebElement delete = getDriver().findElement(By.xpath("//tbody/tr["+3+"]/td[11]/button[@data-original-title='Delete']"));
+		Thread.sleep(1000);
 		delete.click();
+		Thread.sleep(1000);
 		confirmDelete.click();
 	
 		List<WebElement> totalItems = getDriver().findElements(By.xpath("//tbody/tr[@ng-hide='item.IsDeleted']"));
-		Assert.assertEquals(totalItems.size(), 4);
+		Assert.assertEquals(totalItems.size(), 5);
 	}
    
 	public String getCreatedInvoice() {

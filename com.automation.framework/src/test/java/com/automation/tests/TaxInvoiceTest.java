@@ -4,8 +4,11 @@ import static org.testng.Assert.assertEquals;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -24,19 +27,19 @@ public class TaxInvoiceTest extends BaseTest {
 	public void navigateToTaxInvoicePage() throws InterruptedException {
 		globalNavigation.navigateToSalesInvoiceMenu();
 		Assert.assertEquals("Tax Invoice", taxInvoice.getTaxInvoiceText());
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 	}
 
 	@Test(priority = 2, description = "Verify User is able to redirect to Add tax Invoice Page")
 	public void navigateToAddTaxInvoicePage() throws InterruptedException {
-		Thread.sleep(6000);
-		taxInvoice.clickOnNewTaxInvoiceButton();
+		Thread.sleep(8000);
+		taxInvoice.newInvoiceButtonWait();
+		//taxInvoice.clickOnNewTaxInvoiceButton();
 		Assert.assertEquals("Add Tax Invoice", taxInvoice.getaddtaxInvoiceText());
 
 	}
 
-	// @Test(priority = 3, description = "Verify that user should redirect to Tax
-	// Invoice page after clicking on Cancel Button")
+	@Test(priority = 3, description = "Verify that user should redirect to Tax Invoice page after clicking on Cancel Button")
 	public void backToTaxInvoicePage() throws InterruptedException {
 		Thread.sleep(1000);
 		taxInvoice.clickOnCancelButton();
@@ -44,16 +47,14 @@ public class TaxInvoiceTest extends BaseTest {
 		driver.navigate().forward();
 	}
 
-	// @Test(priority = 4, description = "Verify that validations message should
-	// show for all mandatory fields")
+    @Test(priority = 4, description = "Verify that validations message should show for all mandatory fields")
 	public void validation() {
 		taxInvoice.clickOnConfirmButton();
 
 		taxInvoice.checkRequiredFeilds();
 	}
 
-	// @Test(priority = 5, description = "Verify that alert message should show when
-	// user enters billing address without selecting Invoice Type.")
+	@Test(priority = 5, description = "Verify that alert message should show when user enters billing address without selecting Invoice Type.")
 	public void invoiceTypeValidation() throws InterruptedException {
 		taxInvoice.clickOnBillingAddressSection();
 		Thread.sleep(500);
@@ -61,17 +62,14 @@ public class TaxInvoiceTest extends BaseTest {
 		taxInvoice.clickOnOkButton();
 	}
 
-	// @Test(priority = 6, description = "Verify that same billing address is
-	// fetching in shipping address section when user checks Same as billing address
-	// option")
+	@Test(priority = 6, description = "Verify that same billing address is fetching in shipping address section when user checks Same as billing address option")
 	public void checkSameAsBillingAddressFunctionality() throws Exception {
 		taxInvoice.clickOnRegularRadioButton();
 		taxInvoice.indianBillingAddress();
 		taxInvoice.clickOnSameAsBillingAddressCheck();
 	}
 
-	// @Test(priority = 7, description = "An alert should show when user enters
-	// international address as billing address in case of Regular invoice type.")
+	 @Test(priority = 7, description = "An alert should show when user enters international address as billing address in case of Regular invoice type.")
 	public void verifyIndianAlertMessage() throws Exception {
 		taxInvoice.clickOnRegularRadioButton();
 		taxInvoice.internationalBillingAddress();
@@ -80,15 +78,13 @@ public class TaxInvoiceTest extends BaseTest {
 		taxInvoice.clickOnOkButton();
 	}
 
-	// @Test(priority = 8, description = "Verify that reverse charge should show
-	// when user checks Supply Attract Reverse Charge option")
+	@Test(priority = 8, description = "Verify that reverse charge should show when user checks Supply Attract Reverse Charge option")
 	public void verifySupplyReverseCharge() {
 		taxInvoice.clickOnsupplyAttractReverseCharge();
 		taxInvoice.checkReverseCharge();
 	}
 
-	// @Test(priority = 9, description = "Verify that IGST value should not get
-	// calculate when user selects same POS state as of Supplier's")
+	@Test(priority = 9, description = "Verify that IGST value should not get calculate when user selects same POS state as of Supplier's")
 
 	public void verifyIgstValue() throws Exception {
 		taxInvoice.clickOnRegularRadioButton();
@@ -101,9 +97,7 @@ public class TaxInvoiceTest extends BaseTest {
 		Assert.assertNotEquals("0.00", taxInvoice.checkSgstValue());
 	}
 
-	// @Test(priority = 10, description = "Verify that CGST and SGST/UTGST value
-	// should not get calculate when user selects different POS state as of
-	// Supplier's")
+	@Test(priority = 10, description = "Verify that CGST and SGST/UTGST value should not get calculate when user selects different POS state as of Supplier's")
 	public void verifyCgstAndSgstValue() throws Exception {
 		taxInvoice.clickOnRegularRadioButton();
 		taxInvoice.selectPlaceOfSupply("DELHI");
@@ -116,9 +110,7 @@ public class TaxInvoiceTest extends BaseTest {
 
 	}
 
-	// @Test(priority = 11, description = "Verify that CGST and SGST/UTGST value
-	// should not get calculate when user checks IGST Act though POS state and
-	// Supplier's state is same")
+	@Test(priority = 11, description = "Verify that CGST and SGST/UTGST value should not get calculate when user checks IGST Act though POS state and Supplier's state is same")
 	public void verifyIgstActFunctionality() throws Exception {
 		taxInvoice.clickOnRegularRadioButton();
 		taxInvoice.selectPlaceOfSupply("TAMIL NADU");
@@ -131,8 +123,7 @@ public class TaxInvoiceTest extends BaseTest {
 		Assert.assertNotEquals("0.00", taxInvoice.checkIgstValue());
 	}
 
-	// @Test(priority = 12, description = "Verify user is redirecting to Tax Invoice
-	// page after creating order")
+	@Test(priority = 12, description = "Verify user is redirecting to Tax Invoice page after creating order")
 	public void verifyRedirectionToTaxInvoicePage() throws Exception {
 		taxInvoice.clickOnRegularRadioButton();
 		taxInvoice.sendGstinNo();
@@ -150,8 +141,7 @@ public class TaxInvoiceTest extends BaseTest {
 
 	}
 
-	// @Test(priority = 13, description = "Verify that created Tax Invoice is
-	// showing on Tax Invoice listing page")
+	@Test(priority = 13, description = "Verify that created Tax Invoice is showing on Tax Invoice listing page")
 	public void verifyCreatedInvoice() throws Exception {
 		taxInvoice.clickOnRegularRadioButton();
 		taxInvoice.sendGstinNo();
@@ -170,8 +160,7 @@ public class TaxInvoiceTest extends BaseTest {
 		driver.navigate().forward();
 	}
 
-	// @Test(priority = 14, description = "Verify that user is able to create
-	// invoice without entering Shipping Address")
+	@Test(priority = 14, description = "Verify that user is able to create invoice without entering Shipping Address")
 	public void verifyInvoiceCreationWithoutShippingAddress() throws Exception {
 		taxInvoice.clickOnRegularRadioButton();
 		taxInvoice.sendGstinNo();
@@ -189,8 +178,7 @@ public class TaxInvoiceTest extends BaseTest {
 		driver.navigate().forward();
 	}
 
-	// @Test(priority=15, description="User is able to create Tax Invoice with
-	// multiple line items")
+	@Test(priority=15, description="User is able to create Tax Invoice with multiple line items")
 	public void verifyMultipleLineItems() throws Exception {
 		taxInvoice.clickOnRegularRadioButton();
 		taxInvoice.selectPlaceOfSupply("TAMIL NADU");
@@ -208,23 +196,21 @@ public class TaxInvoiceTest extends BaseTest {
 		driver.navigate().forward();
 	}
 
-	// @Test(priority=16, description="User is able to delete multiple line items")
+	@Test(priority=16, description="User is able to delete multiple line items")
 	public void deleteMultipleLineItems() throws Exception {
 		taxInvoice.clickOnRegularRadioButton();
 		taxInvoice.sendGstinNo();
 		taxInvoice.selectDepartment();
 		taxInvoice.selectPlaceOfSupply("DELHI");
-		taxInvoice.indianBillingAddress();
 		taxInvoice.deleteLineItem();
 	}
 
-	// @Test(priority = 17, description="User is able to edit invoice")
+	@Test(priority = 17, description="User is able to edit invoice")
 	public void editCreatedTaxInvoice() throws Exception {
 		taxInvoice.clickOnRegularRadioButton();
 		taxInvoice.sendGstinNo();
 		taxInvoice.selectDepartment();
 		taxInvoice.selectPlaceOfSupply("TAMIL NADU");
-		taxInvoice.indianBillingAddress();
 		taxInvoice.selectitemName();
 		taxInvoice.sendItemQuantity();
 		taxInvoice.selecttaxRate();
@@ -233,183 +219,185 @@ public class TaxInvoiceTest extends BaseTest {
 		taxInvoice.clickOnEditButton();
 		taxInvoice.selectPlaceOfSupply("DELHI");
 		taxInvoice.clickOnConfirmButton();
-		taxInvoice.getAlertMessage();
+		//Thread.sleep(6000);
+		//taxInvoice.clickOnNewTaxInvoiceButton();
+		taxInvoice.newInvoiceButtonWait();
+		
 
 	}
 
-	/*
-	 * @Test(priority=18,
-	 * description="Verify that GSTIN field should show when user selects Deemed Export as Export Type"
-	 * ) public void gstinFieldDisplayCheck1() {
-	 * taxInvoice.clickOnExportRadioButton();
-	 * taxInvoice.selectExportType("Deemed Exports");
-	 * Assert.assertTrue(taxInvoice.isGstinFieldDisplayed()); }
-	 * 
-	 * @Test(priority=19,
-	 * description="Verify that GSTIN field should show when user selects SEZ Exports with payment as Export Type"
-	 * ) public void gstinFieldDisplayCheck2() {
-	 * taxInvoice.clickOnExportRadioButton();
-	 * taxInvoice.selectExportType("SEZ Exports with payment");
-	 * Assert.assertTrue(taxInvoice.isGstinFieldDisplayed()); }
-	 * 
-	 * @Test(priority=20,
-	 * description="Verify that GSTIN field should show when user selects  SEZ exports without payment as Export Type"
-	 * ) public void gstinFieldDisplayCheck3() {
-	 * taxInvoice.clickOnExportRadioButton();
-	 * taxInvoice.selectExportType("SEZ exports without payment");
-	 * Assert.assertTrue(taxInvoice.isGstinFieldDisplayed()); }
-	 * 
-	 * @Test(priority=21,
-	 * description="Verify that GSTIN field should not show when user selects  Export Invoice with payment of Tax as Export Type"
-	 * ) public void gstinFieldDisplayCheck4() {
-	 * taxInvoice.clickOnExportRadioButton();
-	 * taxInvoice.selectExportType("Export Invoice with payment of Tax");
-	 * Assert.assertFalse(taxInvoice.isGstinFieldDisplayed()); }
-	 * 
-	 * @Test(priority=22,
-	 * description="Verify that GSTIN field should not show when user selects  Export under Bond or LUT as Export Type"
-	 * ) public void gstinFieldDisplayCheck5() {
-	 * taxInvoice.clickOnExportRadioButton();
-	 * taxInvoice.selectExportType("Export under Bond or LUT");
-	 * Assert.assertFalse(taxInvoice.isGstinFieldDisplayed()); }
-	 * 
-	 * @Test(priority=23,
-	 * description="Verify that Place Of Supply Field should show when user selects Deemed Export as Export Type"
-	 * ) public void posFieldDisplayCheck1() {
-	 * taxInvoice.clickOnExportRadioButton();
-	 * taxInvoice.selectExportType("Deemed Exports");
-	 * Assert.assertTrue(taxInvoice.isPosFieldDisplayed()); }
-	 * 
-	 * @Test(priority=24,
-	 * description="Verify that Place Of Supply Field should show when user selects SEZ Exports with payment as Export Type"
-	 * ) public void posFieldDisplayCheck2() {
-	 * taxInvoice.clickOnExportRadioButton();
-	 * taxInvoice.selectExportType("SEZ Exports with payment");
-	 * Assert.assertTrue(taxInvoice.isPosFieldDisplayed()); }
-	 * 
-	 * @Test(priority=25,
-	 * description="Verify that Place Of Supply Field should show when user selects SEZ exports without payment as Export Type"
-	 * ) public void posFieldDisplayCheck3() throws InterruptedException {
-	 * taxInvoice.clickOnExportRadioButton();
-	 * taxInvoice.selectExportType("SEZ exports without payment");
-	 * Assert.assertTrue(taxInvoice.isPosFieldDisplayed()); }
-	 * 
-	 * @Test(priority=26,
-	 * description="Verify that Place Of Supply Field should not show  when user selects Export Invoice with payment of Tax as Export Type"
-	 * ) public void posFieldDisplayCheck4() throws InterruptedException {
-	 * taxInvoice.clickOnExportRadioButton();
-	 * taxInvoice.selectExportType("Export Invoice with payment of Tax");
-	 * Assert.assertFalse(taxInvoice.isPosFieldDisplayed()); }
-	 * 
-	 * @Test(priority=27,
-	 * description="Verify that Place Of Supply Field should not show  when user selects Export under Bond or LUT as Export Type"
-	 * ) public void posFieldDisplayCheck5() throws InterruptedException {
-	 * taxInvoice.clickOnExportRadioButton();
-	 * taxInvoice.selectExportType("Export under Bond or LUT");
-	 * Assert.assertFalse(taxInvoice.isPosFieldDisplayed()); }
-	 * 
-	 * @Test(priority=28,
-	 * description="Verify that 'Is Supplier Claiming Refund checkbox' should show  when user selects Deemed Exports as Export Type"
-	 * ) public void suppClaimDisplayCheck1() {
-	 * taxInvoice.clickOnExportRadioButton();
-	 * taxInvoice.selectExportType("Deemed Exports");
-	 * Assert.assertTrue(taxInvoice.isSuppClaimIsDisplayed()); }
-	 * 
-	 * @Test(priority=29,
-	 * description="Verify that 'Is Supplier Claiming Refund checkbox' should show  when user selects SEZ Exports with payment as Export Type"
-	 * ) public void suppClaimDisplayCheck2() {
-	 * taxInvoice.clickOnExportRadioButton();
-	 * taxInvoice.selectExportType("SEZ Exports with payment");
-	 * Assert.assertTrue(taxInvoice.isSuppClaimIsDisplayed()); }
-	 * 
-	 * @Test(priority=30,
-	 * description="Verify that 'Is Supplier Claiming Refund checkbox' should not show  when user selects SEZ exports without payment as Export Type"
-	 * ) public void suppClaimDisplayCheck3() {
-	 * taxInvoice.clickOnExportRadioButton();
-	 * taxInvoice.selectExportType("SEZ exports without payment");
-	 * Assert.assertFalse(taxInvoice.isSuppClaimIsDisplayed());
-	 * 
-	 * }
-	 * 
-	 * @Test(priority=31,
-	 * description="Verify that 'Is Supplier Claiming Refund checkbox' should not show  when user selects Export Invoice with payment of Tax as Export Type"
-	 * ) public void suppClaimDisplayCheck4() {
-	 * taxInvoice.clickOnExportRadioButton();
-	 * taxInvoice.selectExportType("Export Invoice with payment of Tax");
-	 * Assert.assertFalse(taxInvoice.isSuppClaimIsDisplayed()); }
-	 * 
-	 * 
-	 * @Test(priority=32,
-	 * description="Verify that 'Is Supplier Claiming Refund checkbox' should not show  when user selects Export under Bond or LUT as Export Type"
-	 * ) public void suppClaimDisplayCheck5() {
-	 * taxInvoice.clickOnExportRadioButton();
-	 * taxInvoice.selectExportType("Export under Bond or LUT");
-	 * Assert.assertFalse(taxInvoice.isSuppClaimIsDisplayed()); }
-	 * 
-	 * @Test(priority=33,
-	 * description="Verify that 'Is supply covered under section 7 of IGST Act checkbox' should show  when user selects Deemed Exports as Export Type"
-	 * ) public void igstActDisplayCheck1() { taxInvoice.clickOnExportRadioButton();
-	 * taxInvoice.selectExportType("Deemed Exports");
-	 * Assert.assertTrue(taxInvoice.isIgstActDisplayed()); }
-	 * 
-	 * //@Test(priority=34,
-	 * description="Verify that 'Is supply covered under section 7 of IGST Act checkbox' should show  when user selects SEZ Exports with payment as Export Type"
-	 * ) public void igstActDisplayCheck2() { taxInvoice.clickOnExportRadioButton();
-	 * taxInvoice.selectExportType("SEZ Exports with payment");
-	 * Assert.assertFalse(taxInvoice.isIgstActDisplayed()); }
-	 * 
-	 * //@Test(priority=35,
-	 * description="Verify that 'Is supply covered under section 7 of IGST Act checkbox' should show  when user selects SEZ exports without payment as Export Type"
-	 * ) public void igstActDisplayCheck3() { taxInvoice.clickOnExportRadioButton();
-	 * taxInvoice.selectExportType("SEZ exports without payment");
-	 * Assert.assertFalse(taxInvoice.isIgstActDisplayed()); }
-	 * 
-	 * //@Test(priority=36,
-	 * description="Verify that 'Is supply covered under section 7 of IGST Act checkbox' should not show  when user selects Export Invoice with payment of Tax as Export Type"
-	 * ) public void igstActDisplayCheck4() { taxInvoice.clickOnExportRadioButton();
-	 * taxInvoice.selectExportType("Export Invoice with payment of Tax");
-	 * Assert.assertFalse(taxInvoice.isIgstActDisplayed()); }
-	 * 
-	 * //@Test(priority=37,
-	 * description="Verify that 'Is supply covered under section 7 of IGST Act checkbox' should not show  when user selects Export under Bond or LUT as Export Type"
-	 * ) public void igstActDisplayCheck5() { taxInvoice.clickOnExportRadioButton();
-	 * taxInvoice.selectExportType("Export under Bond or LUT");
-	 * Assert.assertFalse(taxInvoice.isIgstActDisplayed()); }
-	 * 
-	 * //@Test(priority=38,
-	 * description="Verify that Differential Percentage dropdown should show  when user selects Deemed Exports as Export Type"
-	 * ) public void differentialPercentagDisplayCheck1() {
-	 * taxInvoice.clickOnExportRadioButton();
-	 * taxInvoice.selectExportType("Deemed Exports");
-	 * Assert.assertTrue(taxInvoice.isDifferentialPercentageDisplayed()); }
-	 * 
-	 * //@Test(priority=39,
-	 * description="Verify that Differential Percentage dropdown should show  when user selects SEZ Exports with payment as Export Type"
-	 * ) public void differentialPercentagDisplayCheck2() {
-	 * taxInvoice.clickOnExportRadioButton();
-	 * taxInvoice.selectExportType("SEZ Exports with payment");
-	 * Assert.assertTrue(taxInvoice.isDifferentialPercentageDisplayed()); }
-	 * 
-	 * //@Test(priority=40,
-	 * description="Verify that Differential Percentage dropdown should show  when user selects SEZ exports without payment as Export Type"
-	 * ) public void differentialPercentagDisplayCheck3() {
-	 * taxInvoice.clickOnExportRadioButton();
-	 * taxInvoice.selectExportType("SEZ exports without payment");
-	 * Assert.assertTrue(taxInvoice.isDifferentialPercentageDisplayed()); }
-	 * 
-	 * //@Test(priority=41,
-	 * description="Verify that Differential Percentage dropdown should not show  when user selects Export Invoice with payment of Tax as Export Type"
-	 * ) public void differentialPercentagDisplayCheck4() {
-	 * taxInvoice.clickOnExportRadioButton();
-	 * taxInvoice.selectExportType("Export Invoice with payment of Tax");
-	 * Assert.assertFalse(taxInvoice.isDifferentialPercentageDisplayed()); }
-	 * 
-	 * //@Test(priority=42,
-	 * description="Verify that Differential Percentage dropdown should not show  when user selects Export under Bond or LUT as Export Type"
-	 * ) public void differentialPercentagDisplayCheck5() {
-	 * taxInvoice.clickOnExportRadioButton();
-	 * taxInvoice.selectExportType("Export under Bond or LUT");
-	 * Assert.assertFalse(taxInvoice.isDifferentialPercentageDisplayed()); }
+	
+	  @Test(priority=18,
+	  description="Verify that GSTIN field should show when user selects Deemed Export as Export Type"
+	  ) public void gstinFieldDisplayCheck1() {
+	  taxInvoice.clickOnExportRadioButton();
+	  taxInvoice.selectExportType("Deemed Exports");
+	  Assert.assertTrue(taxInvoice.isGstinFieldDisplayed()); }
+	  
+	  @Test(priority=19,
+	  description="Verify that GSTIN field should show when user selects SEZ Exports with payment as Export Type"
+	  ) public void gstinFieldDisplayCheck2() {
+	  taxInvoice.clickOnExportRadioButton();
+	  taxInvoice.selectExportType("SEZ Exports with payment");
+	  Assert.assertTrue(taxInvoice.isGstinFieldDisplayed()); }
+	  
+	  @Test(priority=20,
+	  description="Verify that GSTIN field should show when user selects  SEZ exports without payment as Export Type") 
+	  public void gstinFieldDisplayCheck3() {
+	  taxInvoice.clickOnExportRadioButton();
+	  taxInvoice.selectExportType("SEZ exports without payment");
+	  Assert.assertTrue(taxInvoice.isGstinFieldDisplayed()); }
+	  
+	  @Test(priority=21,
+	  description="Verify that GSTIN field should not show when user selects  Export Invoice with payment of Tax as Export Type")
+	  public void gstinFieldDisplayCheck4() {
+	  taxInvoice.clickOnExportRadioButton();
+	  taxInvoice.selectExportType("Export Invoice with payment of Tax");
+	  Assert.assertFalse(taxInvoice.isGstinFieldDisplayed()); }
+	  
+	  @Test(priority=22,
+	  description="Verify that GSTIN field should not show when user selects  Export under Bond or LUT as Export Type")
+	  public void gstinFieldDisplayCheck5() {
+	  taxInvoice.clickOnExportRadioButton();
+	  taxInvoice.selectExportType("Export under Bond or LUT");
+	  Assert.assertFalse(taxInvoice.isGstinFieldDisplayed()); }
+	  
+	  @Test(priority=23,
+	  description="Verify that Place Of Supply Field should show when user selects Deemed Export as Export Type")
+	  public void posFieldDisplayCheck1() {
+	  taxInvoice.clickOnExportRadioButton();
+	  taxInvoice.selectExportType("Deemed Exports");
+	  Assert.assertTrue(taxInvoice.isPosFieldDisplayed()); }
+	  
+	  @Test(priority=24,
+	  description="Verify that Place Of Supply Field should show when user selects SEZ Exports with payment as Export Type")
+	  public void posFieldDisplayCheck2() {
+	  taxInvoice.clickOnExportRadioButton();
+	  taxInvoice.selectExportType("SEZ Exports with payment");
+	  Assert.assertTrue(taxInvoice.isPosFieldDisplayed()); }
+	  
+	  @Test(priority=25,
+	  description="Verify that Place Of Supply Field should show when user selects SEZ exports without payment as Export Type") 
+	  public void posFieldDisplayCheck3() throws InterruptedException {
+	  taxInvoice.clickOnExportRadioButton();
+	  taxInvoice.selectExportType("SEZ exports without payment");
+	  Assert.assertTrue(taxInvoice.isPosFieldDisplayed()); }
+	  
+	 @Test(priority=26,
+	  description="Verify that Place Of Supply Field should not show  when user selects Export Invoice with payment of Tax as Export Type" )
+	  public void posFieldDisplayCheck4() throws InterruptedException {
+	  taxInvoice.clickOnExportRadioButton();
+	  taxInvoice.selectExportType("Export Invoice with payment of Tax");
+	  Assert.assertFalse(taxInvoice.isPosFieldDisplayed()); }
+	  
+	  @Test(priority=27,
+	  description="Verify that Place Of Supply Field should not show  when user selects Export under Bond or LUT as Export Type")
+	  public void posFieldDisplayCheck5() throws InterruptedException {
+	  taxInvoice.clickOnExportRadioButton();
+	  taxInvoice.selectExportType("Export under Bond or LUT");
+	  Assert.assertFalse(taxInvoice.isPosFieldDisplayed()); }
+	  
+	  @Test(priority=28,
+	  description="Verify that 'Is Supplier Claiming Refund checkbox' should show  when user selects Deemed Exports as Export Type" )
+	  public void suppClaimDisplayCheck1() {
+	  taxInvoice.clickOnExportRadioButton();
+	  taxInvoice.selectExportType("Deemed Exports");
+	  Assert.assertTrue(taxInvoice.isSuppClaimIsDisplayed()); }
+	  
+	  @Test(priority=29,
+	  description="Verify that 'Is Supplier Claiming Refund checkbox' should show  when user selects SEZ Exports with payment as Export Type" )
+	  public void suppClaimDisplayCheck2() {
+	  taxInvoice.clickOnExportRadioButton();
+	  taxInvoice.selectExportType("SEZ Exports with payment");
+	  Assert.assertTrue(taxInvoice.isSuppClaimIsDisplayed()); }
+	  
+	  @Test(priority=30,
+	  description="Verify that 'Is Supplier Claiming Refund checkbox' should not show  when user selects SEZ exports without payment as Export Type")
+	  public void suppClaimDisplayCheck3() {
+	  taxInvoice.clickOnExportRadioButton();
+	  taxInvoice.selectExportType("SEZ exports without payment");
+	  Assert.assertFalse(taxInvoice.isSuppClaimIsDisplayed());
+	  }
+	  
+	  @Test(priority=31,
+	  description="Verify that 'Is Supplier Claiming Refund checkbox' should not show  when user selects Export Invoice with payment of Tax as Export Type")
+	  public void suppClaimDisplayCheck4() {
+	  taxInvoice.clickOnExportRadioButton();
+	  taxInvoice.selectExportType("Export Invoice with payment of Tax");
+	  Assert.assertFalse(taxInvoice.isSuppClaimIsDisplayed()); }
+	  
+	  
+	  @Test(priority=32,
+	  description="Verify that 'Is Supplier Claiming Refund checkbox' should not show  when user selects Export under Bond or LUT as Export Type")
+	  public void suppClaimDisplayCheck5() {
+	  taxInvoice.clickOnExportRadioButton();
+	  taxInvoice.selectExportType("Export under Bond or LUT");
+	  Assert.assertFalse(taxInvoice.isSuppClaimIsDisplayed()); }
+	  
+	  @Test(priority=33,
+	  description="Verify that 'Is supply covered under section 7 of IGST Act checkbox' should show  when user selects Deemed Exports as Export Type" )
+	  public void igstActDisplayCheck1() { taxInvoice.clickOnExportRadioButton();
+	  taxInvoice.selectExportType("Deemed Exports");
+	  Assert.assertTrue(taxInvoice.isIgstActDisplayed()); }
+	  
+	  @Test(priority=34,
+	  description="Verify that 'Is supply covered under section 7 of IGST Act checkbox' should show  when user selects SEZ Exports with payment as Export Type" )
+	  public void igstActDisplayCheck2() { taxInvoice.clickOnExportRadioButton();
+	  taxInvoice.selectExportType("SEZ Exports with payment");
+	  Assert.assertFalse(taxInvoice.isIgstActDisplayed()); }
+	  
+	  @Test(priority=35,
+	  description="Verify that 'Is supply covered under section 7 of IGST Act checkbox' should show  when user selects SEZ exports without payment as Export Type" )
+	  public void igstActDisplayCheck3() { taxInvoice.clickOnExportRadioButton();
+	  taxInvoice.selectExportType("SEZ exports without payment");
+	  Assert.assertFalse(taxInvoice.isIgstActDisplayed()); }
+	  
+	  @Test(priority=36,
+	  description="Verify that 'Is supply covered under section 7 of IGST Act checkbox' should not show  when user selects Export Invoice with payment of Tax as Export Type" )
+	  public void igstActDisplayCheck4() { taxInvoice.clickOnExportRadioButton();
+	  taxInvoice.selectExportType("Export Invoice with payment of Tax");
+	  Assert.assertFalse(taxInvoice.isIgstActDisplayed()); }
+	  
+	  @Test(priority=37,
+	  description="Verify that 'Is supply covered under section 7 of IGST Act checkbox' should not show  when user selects Export under Bond or LUT as Export Type" )
+	  public void igstActDisplayCheck5() { taxInvoice.clickOnExportRadioButton();
+	  taxInvoice.selectExportType("Export under Bond or LUT");
+	  Assert.assertFalse(taxInvoice.isIgstActDisplayed()); }
+	  
+	 @Test(priority=38,
+	  description="Verify that Differential Percentage dropdown should show  when user selects Deemed Exports as Export Type" )
+	 public void differentialPercentagDisplayCheck1() {
+	  taxInvoice.clickOnExportRadioButton();
+	  taxInvoice.selectExportType("Deemed Exports");
+	  Assert.assertTrue(taxInvoice.isDifferentialPercentageDisplayed()); }
+	  
+	  @Test(priority=39,
+	  description="Verify that Differential Percentage dropdown should show  when user selects SEZ Exports with payment as Export Type")
+	  public void differentialPercentagDisplayCheck2() {
+	  taxInvoice.clickOnExportRadioButton();
+	  taxInvoice.selectExportType("SEZ Exports with payment");
+	  Assert.assertTrue(taxInvoice.isDifferentialPercentageDisplayed()); }
+	  
+	 @Test(priority=40,
+	 description="Verify that Differential Percentage dropdown should show  when user selects SEZ exports without payment as Export Type" )
+	 public void differentialPercentagDisplayCheck3() {
+	 taxInvoice.clickOnExportRadioButton();
+	 taxInvoice.selectExportType("SEZ exports without payment");
+	  Assert.assertTrue(taxInvoice.isDifferentialPercentageDisplayed()); }
+	 
+	 @Test(priority=41,
+	 description="Verify that Differential Percentage dropdown should not show  when user selects Export Invoice with payment of Tax as Export Type" )
+	 public void differentialPercentagDisplayCheck4() {
+	 taxInvoice.clickOnExportRadioButton();
+	 taxInvoice.selectExportType("Export Invoice with payment of Tax");
+	  Assert.assertFalse(taxInvoice.isDifferentialPercentageDisplayed()); }
+	  
+	 @Test(priority=42,
+	 description="Verify that Differential Percentage dropdown should not show  when user selects Export under Bond or LUT as Export Type"	 ) 
+	 public void differentialPercentagDisplayCheck5() {
+	 taxInvoice.clickOnExportRadioButton();
+	 taxInvoice.selectExportType("Export under Bond or LUT");
+	  Assert.assertFalse(taxInvoice.isDifferentialPercentageDisplayed()); }
 	 
 
 	@Test(priority = 43, description = "Verify that Total Tax should not get calculate in case of SEZ exports without payment")
@@ -501,7 +489,7 @@ public class TaxInvoiceTest extends BaseTest {
 		taxInvoice.clickOnConfirmButton();
 		taxInvoice.checkShipBillExDateReqMsg();
 		
-	}*/
+	}
 	
 	@Test(priority = 51, description="Verify that currency field should get mandatory and validation message should also show when user switch to regular invoice type from export and again switch to Export Invoice type")
 	public void checkCurrencyValidationMsg() {
@@ -510,19 +498,12 @@ public class TaxInvoiceTest extends BaseTest {
 		Assert.assertFalse(taxInvoice.checkCurrencyReqMsg());
 		taxInvoice.clickOnRegularRadioButton();
 		taxInvoice.clickOnExportRadioButton();
-		Assert.assertTrue(taxInvoice.checkCurrencyReqMsg());
+		Assert.assertTrue(taxInvoice.checkCurrencyReqMsg()); 
+		
 			
     }
-	
 
-	@Test(priority = 51, description="Verify that currency field should get mandatory and validation message should also show when user switch to regular invoice type from export and again switch to Export Invoice type")
-	public void checkCurrencyValidationMsg() {
-		taxInvoice.clickOnExportRadioButton();
-		taxInvoice.clickOnConfirmButton();
-		Assert.assertFalse(taxInvoice.checkCurrencyReqMsg());
-		taxInvoice.clickOnRegularRadioButton();
-		taxInvoice.clickOnExportRadioButton();
-		Assert.assertTrue(taxInvoice.checkCurrencyReqMsg());
+	
+	
 			
-    }
 }
