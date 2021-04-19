@@ -45,6 +45,7 @@ public class TaxInvoiceTest extends BaseTest {
 		taxInvoice.clickOnCancelButton();
 		Assert.assertEquals("Tax Invoice", taxInvoice.getTaxInvoiceText());
 		driver.navigate().forward();
+		
 	}
 
     @Test(priority = 4, description = "Verify that validations message should show for all mandatory fields")
@@ -205,7 +206,7 @@ public class TaxInvoiceTest extends BaseTest {
 		taxInvoice.deleteLineItem();
 	}
 
-	@Test(priority = 17, description="User is able to edit invoice")
+//	@Test(priority = 17, description="User is able to edit invoice")
 	public void editCreatedTaxInvoice() throws Exception {
 		taxInvoice.clickOnRegularRadioButton();
 		taxInvoice.sendGstinNo();
