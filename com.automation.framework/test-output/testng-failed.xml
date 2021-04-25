@@ -3,16 +3,18 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.automation.tests.TaxInvoiceTest">
+      <class name="com.automation.tests.CreditDebitNoteTest">
         <methods>
           <include name="closeBrowser"/>
+          <include name="validation"/>
           <include name="before"/>
-          <include name="verifyMultipleLineItems"/>
-          <include name="reload"/>
+          <include name="navigateToAddCdnPage"/>
           <include name="tearDown"/>
           <include name="setup"/>
+          <include name="backToTaxInvoicePage"/>
+          <include name="reload"/>
         </methods>
-      </class> <!-- com.automation.tests.TaxInvoiceTest -->
+      </class> <!-- com.automation.tests.CreditDebitNoteTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

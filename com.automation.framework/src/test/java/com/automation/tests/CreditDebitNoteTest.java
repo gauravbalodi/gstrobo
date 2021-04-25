@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -18,22 +19,36 @@ public class CreditDebitNoteTest extends BaseTest {
 		driver.navigate().refresh();
 	}
 
-	@Test(priority = 0)
+	@Test(priority = 1, description="user is able to redirect to credit/debit note page")
 	public void navigateToCreditDebitPage() throws InterruptedException {
 
 		globalNavigation.navigateToSalesInvoiceMenu();
-		Thread.sleep(2000);
-		WebElement CreditDebitNoteMenu = driver.findElement(By.xpath("//body/div[@id='mainSectionLayout']/div[1]/aside[1]/section[1]/ul[1]/li[3]/ul[1]/li[1]/ul[1]/li[2]"));
-		
-		System.out.println(CreditDebitNoteMenu.isDisplayed());
-		WebDriverWait wait = new WebDriverWait(driver, 5);
-        wait.until(ExpectedConditions.elementToBeClickable(CreditDebitNoteMenu));
-        CreditDebitNoteMenu.click();
-        
-		
-		
-    
-		
-
+		Thread.sleep(1000);
+		creditDebitNote.clickOnCdnMenu();
+        Assert.assertEquals("Credit/Debit Notes", creditDebitNote.getCdnText());
 	}
+
+
+    @Test(priority=2, description ="User is able to redirect to add new credit/debit note page.")
+    public void navigateToAddCdnPage() {
+    	creditDebitNote.clickOnNewCdnButton();
+    	Assert.assertEquals("Add Credit/Debit Note", creditDebitNote.getAddCdnText());
+    }
+
+    @Test(priority = 3, description = "Verify that user should redirect to Tax Invoice page after clicking on Cancel Button")
+	public void backToTaxInvoicePage() throws InterruptedException {
+		Thread.sleep(1000);
+		creditDebitNote.clickOnCancelButton();
+		Assert.assertEquals("Tax Invoice", taxInvoice.getTaxInvoiceText());
+		driver.navigate().forward();
+		
+	}
+
+    @Test(priority = 4, description = "Verify that validations message should show for all mandatory fields")
+	public void validation() {
+    	creditDebitNote.clickOnConfirmButton();
+
+    	creditDebitNote.checkRequiredFeilds();
+	}
+
 }

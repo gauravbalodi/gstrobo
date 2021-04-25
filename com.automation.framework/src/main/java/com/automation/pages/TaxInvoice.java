@@ -20,6 +20,7 @@ import com.automation.Base.BaseTest;
 import Utilities.Configuration;
 
 public class TaxInvoice {
+	
 
     @FindBy(xpath = "//label[@class='radio-inline']")
 	WebElement regularRadioButton;
@@ -36,7 +37,7 @@ public class TaxInvoice {
 	@FindBy(xpath = "//h1[contains(text(),'Add Tax Invoice')]")
 	WebElement addtaxInvoiceText;
 
-	@FindBy(xpath = "//body/div[@id='mainSectionLayout']/div[1]/aside[1]/section[1]/ul[1]/li[3]/ul[1]/li[1]/ul[1]/li[1]/a[1]")
+	@FindBy(xpath = "//li[@ng-repeat='Child1 in GetChild(Child.FormId)'][1]")
 	WebElement taxInvoiceMenu;
 
 	@FindBy(xpath = "//h1[contains(text(),'Tax Invoice')]")
@@ -237,6 +238,8 @@ public class TaxInvoice {
 	
 	@FindBy(xpath="//input[@id='PortCode']")
 	WebElement portCode;
+	
+	 	  			
 	
 	public void newInvoiceButtonWait() {
 		WebDriver driver= getDriver();

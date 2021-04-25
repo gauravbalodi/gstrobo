@@ -26,19 +26,21 @@ public class TaxInvoiceTest extends BaseTest {
 	@Test(priority = 1, description = "Verify User is able to redirect to Tax Invoice page.")
 	public void navigateToTaxInvoicePage() throws InterruptedException {
 		globalNavigation.navigateToSalesInvoiceMenu();
+		taxInvoice.clivkOnTaxInvoiceMenu();
+		Thread.sleep(500);
 		Assert.assertEquals("Tax Invoice", taxInvoice.getTaxInvoiceText());
 		Thread.sleep(3000);
 	}
 
 	@Test(priority = 2, description = "Verify User is able to redirect to Add tax Invoice Page")
 	public void navigateToAddTaxInvoicePage() throws InterruptedException {
-		Thread.sleep(8000);
+		Thread.sleep(20000);
 		taxInvoice.newInvoiceButtonWait();
 		//taxInvoice.clickOnNewTaxInvoiceButton();
 		Assert.assertEquals("Add Tax Invoice", taxInvoice.getaddtaxInvoiceText());
 
 	}
-
+/*
 	@Test(priority = 3, description = "Verify that user should redirect to Tax Invoice page after clicking on Cancel Button")
 	public void backToTaxInvoicePage() throws InterruptedException {
 		Thread.sleep(1000);
@@ -503,8 +505,100 @@ public class TaxInvoiceTest extends BaseTest {
 		
 			
     }
+*/
+	@Test(priority=52, description="Verify that user is able to create tax invoice with having Export Type Deemed Export")
+	public void createTaxInvoiceWithDE() throws Exception {
+		taxInvoice.clickOnExportRadioButton();
+		taxInvoice.selectExportType("Deemed Exports");
+		taxInvoice.sendGstinNo();
+		taxInvoice.selectDepartment();
+		taxInvoice.selectPlaceOfSupply("DELHI");
+		taxInvoice.selectitemName();
+		taxInvoice.selecttaxRate();
+		taxInvoice.sendItemQuantity();
+		taxInvoice.clickOnConfirmButton();
+		Thread.sleep(3000);
+		String invoice = taxInvoice.getInvoiceNo();
+		Thread.sleep(3000);
+		String createdInvoice = taxInvoice.getCreatedInvoice();
+		Assert.assertEquals(invoice, createdInvoice);
+		driver.navigate().forward();
+		}
+	
+	@Test(priority=53, description="Verify that user is able to create tax invoice with having Export Type SEZ Exports with payment")
+	public void createTaxInvoiceWithSEZWP() throws Exception {
+		taxInvoice.clickOnExportRadioButton();
+		taxInvoice.selectExportType("SEZ Exports with payment");
+		taxInvoice.sendGstinNo();
+		taxInvoice.selectDepartment();
+		taxInvoice.selectPlaceOfSupply("DELHI");
+		taxInvoice.selectitemName();
+		taxInvoice.selecttaxRate();
+		taxInvoice.sendItemQuantity();
+		taxInvoice.clickOnConfirmButton();
+		Thread.sleep(3000);
+		String invoice = taxInvoice.getInvoiceNo();
+		Thread.sleep(3000);
+		String createdInvoice = taxInvoice.getCreatedInvoice();
+		Assert.assertEquals(invoice, createdInvoice);
+		driver.navigate().forward();
+		}
+	
+	@Test(priority=54, description="Verify that user is able to create tax invoice with having Export Type SEZ exports without payment")
+	public void createTaxInvoiceWithSEZWOP() throws Exception {
+		taxInvoice.clickOnExportRadioButton();
+		taxInvoice.selectExportType("SEZ exports without payment");
+		taxInvoice.sendGstinNo();
+		taxInvoice.selectDepartment();
+		taxInvoice.selectPlaceOfSupply("DELHI");
+		taxInvoice.selectitemName();
+		taxInvoice.selecttaxRate();
+		taxInvoice.sendItemQuantity();
+		taxInvoice.clickOnConfirmButton();
+		Thread.sleep(3000);
+		String invoice = taxInvoice.getInvoiceNo();
+		Thread.sleep(3000);
+		String createdInvoice = taxInvoice.getCreatedInvoice();
+		Assert.assertEquals(invoice, createdInvoice);
+		driver.navigate().forward();
+		}
 
-	
-	
-			
+	@Test(priority=55, description="Verify that user is able to create tax invoice with having Export Type Export Invoice with payment of Tax")
+	public void createTaxInvoiceWithEXWP() throws Exception {
+		taxInvoice.clickOnExportRadioButton();
+		taxInvoice.sendLegalName();
+		taxInvoice.selectExportType("Export Invoice with payment of Tax");
+		taxInvoice.selectDepartment();
+		taxInvoice.selectitemName();
+		taxInvoice.selecttaxRate();
+		taxInvoice.sendItemQuantity();
+		taxInvoice.clickOnConfirmButton();
+		Thread.sleep(3000);
+		String invoice = taxInvoice.getInvoiceNo();
+		Thread.sleep(3000);
+		String createdInvoice = taxInvoice.getCreatedInvoice();
+		Assert.assertEquals(invoice, createdInvoice);
+		driver.navigate().forward();
+		}
+
+	@Test(priority=56, description="Verify that user is able to create tax invoice with having Export Type Export under Bond or LUT")
+	public void createTaxInvoiceWithEXWOP() throws Exception {
+		taxInvoice.clickOnExportRadioButton();
+		taxInvoice.sendLegalName();
+		taxInvoice.selectExportType("Export under Bond or LUT");
+		taxInvoice.selectDepartment();
+		taxInvoice.selectitemName();
+		taxInvoice.selecttaxRate();
+		taxInvoice.sendItemQuantity();
+		taxInvoice.clickOnConfirmButton();
+		Thread.sleep(3000);
+		String invoice = taxInvoice.getInvoiceNo();
+		Thread.sleep(3000);
+		String createdInvoice = taxInvoice.getCreatedInvoice();
+		Assert.assertEquals(invoice, createdInvoice);
+		driver.navigate().forward();
+		}
+
 }
+
+

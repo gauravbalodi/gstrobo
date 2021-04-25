@@ -60,6 +60,8 @@ public class BaseTest extends BasePage {
 		
 		clickOnElement("//button[contains(text(),'Next')]",driver);
 		
+		Thread.sleep(1000);
+		
 		System.out.println(driver.findElement(By.xpath("//h1[contains(text(),'Dashboard')]")).getText());
 
 		System.out.println(driver.getTitle());

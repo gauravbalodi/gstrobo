@@ -3,15 +3,65 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.automation.tests.CreditDebitNoteTest">
+      <class name="com.automation.tests.TaxInvoiceTest">
         <methods>
+          <include name="verifyIgstValue"/>
+          <include name="igstActDisplayCheck5"/>
+          <include name="verifyIndianAlertMessage"/>
+          <include name="igstActDisplayCheck1"/>
+          <include name="verifyInvoiceCreationWithoutShippingAddress"/>
+          <include name="igstActDisplayCheck3"/>
+          <include name="taxCalcualtionDe"/>
+          <include name="igstActDisplayCheck2"/>
+          <include name="deleteMultipleLineItems"/>
+          <include name="igstActDisplayCheck4"/>
+          <include name="checkShipBillExDateValidationMsg"/>
+          <include name="gstinFieldDisplayCheck1"/>
+          <include name="gstinFieldDisplayCheck2"/>
+          <include name="backToTaxInvoicePage"/>
+          <include name="checkSameAsBillingAddressFunctionality"/>
           <include name="before"/>
-          <include name="navigateToCreditDebitPage"/>
+          <include name="checkExportTypevalidationMsg"/>
+          <include name="posFieldDisplayCheck1"/>
+          <include name="posFieldDisplayCheck2"/>
+          <include name="validation"/>
+          <include name="verifyIgstActFunctionality"/>
+          <include name="posFieldDisplayCheck3"/>
+          <include name="verifySupplyReverseCharge"/>
+          <include name="suppClaimDisplayCheck1"/>
+          <include name="suppClaimDisplayCheck2"/>
+          <include name="suppClaimDisplayCheck3"/>
+          <include name="posFieldDisplayCheck4"/>
+          <include name="posFieldDisplayCheck5"/>
+          <include name="suppClaimDisplayCheck5"/>
+          <include name="differentialPercentagDisplayCheck5"/>
+          <include name="taxCalcualtionSezwp"/>
+          <include name="differentialPercentagDisplayCheck3"/>
+          <include name="differentialPercentagDisplayCheck4"/>
+          <include name="suppClaimDisplayCheck4"/>
+          <include name="taxCalcualtionSezwop"/>
+          <include name="differentialPercentagDisplayCheck1"/>
+          <include name="verifyRedirectionToTaxInvoicePage"/>
+          <include name="verifyMultipleLineItems"/>
           <include name="tearDown"/>
+          <include name="checkShipBillNoValidationMsg"/>
+          <include name="differentialPercentagDisplayCheck2"/>
+          <include name="taxCalcualtionExwop"/>
           <include name="setup"/>
+          <include name="invoiceTypeValidation"/>
+          <include name="closeBrowser"/>
+          <include name="taxCalcualtionExwp"/>
+          <include name="verifyCreatedInvoice"/>
+          <include name="gstinFieldDisplayCheck4"/>
+          <include name="gstinFieldDisplayCheck5"/>
+          <include name="navigateToTaxInvoicePage"/>
+          <include name="gstinFieldDisplayCheck3"/>
+          <include name="checkCurrencyValidationMsg"/>
+          <include name="navigateToAddTaxInvoicePage"/>
           <include name="reload"/>
+          <include name="verifyCgstAndSgstValue"/>
         </methods>
-      </class> <!-- com.automation.tests.CreditDebitNoteTest -->
+      </class> <!-- com.automation.tests.TaxInvoiceTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
