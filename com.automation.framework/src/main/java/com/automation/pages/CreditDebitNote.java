@@ -1,6 +1,7 @@
 package com.automation.pages;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import org.openqa.selenium.By;
@@ -483,6 +484,18 @@ public class CreditDebitNote {
 			addButton.click();
 		}
 
+	}
+	
+	public void deleteLineItem() throws Exception {
+	    enterMultipleLineItems();
+		WebElement delete = getDriver().findElement(By.xpath("//tbody/tr["+3+"]/td[11]/button[@data-original-title='Delete']"));
+		Thread.sleep(1000);
+		delete.click();
+		Thread.sleep(1000);
+		confirmDelete.click();
+	
+		List<WebElement> totalItems = getDriver().findElements(By.xpath("//tbody/tr[@ng-hide='item.IsDeleted']"));
+		Assert.assertEquals(totalItems.size(), 5);
 	}
 
 	public void checkRequiredFeilds() {
